@@ -56,14 +56,24 @@
   --font-display: "Cera Pro", system-ui, sans-serif;
 }
 
-:root.light {
-  --color-darkBg: #f8f9fa;
-  --color-darkCard: #ffffff;
-  --color-darkBorder: #e2e8f0;
-  --color-textPrimary: #1e293b;
-  --color-textSecondary: #475569;
-  --color-textMuted: #94a3b8;
-}
+.light .bg-darkBg { background-color: #f8f9fa; }
+.light .bg-darkBg\/50 { background-color: rgba(248, 249, 250, 0.5); }
+.light .bg-darkBg\/60 { background-color: rgba(248, 249, 250, 0.6); }
+.light .bg-darkBg\/90 { background-color: rgba(248, 249, 250, 0.9); }
+.light .bg-darkBg\/95 { background-color: rgba(248, 249, 250, 0.95); }
+.light .bg-darkCard { background-color: #ffffff; }
+.light .bg-darkCard\/50 { background-color: rgba(255, 255, 255, 0.5); }
+.light .bg-darkCard\/80 { background-color: rgba(255, 255, 255, 0.8); }
+.light .bg-darkBorder { background-color: #e2e8f0; }
+.light .border-darkBorder { border-color: #e2e8f0; }
+.light .text-textPrimary { color: #1e293b; }
+.light .text-textSecondary { color: #475569; }
+.light .text-textMuted { color: #94a3b8; }
+.light .hover\:bg-darkCard:hover { background-color: #ffffff; }
+.light .hover\:bg-darkCard\/80:hover { background-color: rgba(255, 255, 255, 0.8); }
+.light .hover\:text-textPrimary:hover { color: #1e293b; }
+.light .from-darkBg\/60 { --tw-gradient-from: rgba(248, 249, 250, 0.6); }
+.light .to-darkCard\/90 { --tw-gradient-to: rgba(255, 255, 255, 0.9); }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }

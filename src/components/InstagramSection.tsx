@@ -8,22 +8,22 @@ const instagramPosts = [
   {
     id: 1,
     label: "Мероприятия",
-    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
+    img: "/images/photoshoot/2S2A3141.jpg",
   },
   {
     id: 2,
     label: "Студенческая жизнь",
-    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9a3?w=400&q=80",
+    img: "/images/photoshoot/2S2A3060.jpg",
   },
   {
     id: 3,
     label: "Проекты",
-    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&q=80",
+    img: "/images/photoshoot/2S2A3230.jpg",
   },
   {
     id: 4,
     label: "Новости",
-    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
+    img: "/images/photoshoot/2S2A3338.jpg",
   },
 ];
 

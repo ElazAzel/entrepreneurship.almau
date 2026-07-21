@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { WHATSAPP_LINK, HERO_BADGES } from "@/lib/constants";
+import { WHATSAPP_LINK, HERO_BADGES, ARTICLE_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
 function Particles() {
@@ -154,11 +154,24 @@ export function Hero() {
                     </span>
                   ))}
                 </motion.div>
+
+                <motion.a
+                  href={ARTICLE_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="mt-4 inline-flex items-center gap-1.5 text-[11px] text-textMuted hover:text-brandOrange transition-colors"
+                >
+                  <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  Читать статью на ER10.kz
+                </motion.a>
               </div>
             </div>
             <div className="hidden md:block md:col-span-2 relative min-h-[300px] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
+                src="/images/photoshoot/2S2A3060.jpg"
                 alt="Студенты AlmaU"
                 className="absolute inset-0 w-full h-full object-cover"
               />
