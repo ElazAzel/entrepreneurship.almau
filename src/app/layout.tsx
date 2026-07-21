@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/lib/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsAppButton } from "@/components/FloatingWhatsAppButton";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const siteTitle = "Институт предпринимательства AlmaU — бакалавриат и магистратура для будущих предпринимателей";
 const siteDescription =
@@ -135,6 +136,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{
           __html: `!function(){var p=document.getElementById("preloader");if(p){var h=function(){p.style.opacity="0";p.style.visibility="hidden";setTimeout(function(){p.parentNode.removeChild(p)},600)};if(document.readyState==="complete"||document.readyState==="interactive"){setTimeout(h,200)}else{document.addEventListener("DOMContentLoaded",function(){setTimeout(h,200)})}window.addEventListener("load",h)}}()`
         }} />
+        <CustomCursor />
         <ThemeProvider>
           <a
             href="#main-content"

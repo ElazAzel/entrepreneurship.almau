@@ -100,4 +100,28 @@ html {
 
 body {
   overflow-x: hidden;
+  cursor: none;
+}
+
+body a,
+body button,
+body [role="button"],
+body input,
+body textarea,
+body select {
+  cursor: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    cursor: auto;
+  }
+  body a,
+  body button,
+  body [role="button"],
+  body input,
+  body textarea,
+  body select {
+    cursor: auto;
+  }
 }
