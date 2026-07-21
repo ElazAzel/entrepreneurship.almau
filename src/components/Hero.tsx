@@ -6,11 +6,11 @@ import { WHATSAPP_LINK, HERO_BADGES, ARTICLE_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
 const STUDENT_FACES = [
-  "/images/photoshoot/2S2A2424.jpg",
-  "/images/photoshoot/2S2A2481.jpg",
-  "/images/photoshoot/2S2A2529.jpg",
-  "/images/photoshoot/2S2A2583.jpg",
-  "/images/photoshoot/2S2A2654.jpg",
+  { src: "/images/photoshoot/2S2A2424.jpg", alt: "Студент программы International Business" },
+  { src: "/images/photoshoot/2S2A2481.jpg", alt: "Студент программы Digital Commerce" },
+  { src: "/images/photoshoot/2S2A2529.jpg", alt: "Студент программы BAE" },
+  { src: "/images/photoshoot/2S2A2583.jpg", alt: "Студентка Института предпринимательства" },
+  { src: "/images/photoshoot/2S2A2654.jpg", alt: "Студент магистратуры креативных индустрий" },
 ];
 
 function Particles() {
@@ -122,9 +122,9 @@ export function Hero() {
                   className="mt-5 flex items-center gap-3"
                 >
                   <div className="flex -space-x-3">
-                    {STUDENT_FACES.map((src) => (
-                      <div key={src} className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-darkCard overflow-hidden bg-darkBg">
-                        <Image src={src} width={40} height={40} className="w-full h-full object-cover" alt="" />
+                    {STUDENT_FACES.map((face) => (
+                      <div key={face.src} className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-darkCard overflow-hidden bg-darkBg">
+                        <Image src={face.src} width={40} height={40} className="w-full h-full object-cover" alt={face.alt} />
                       </div>
                     ))}
                     <div className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-darkCard bg-brandOrange flex items-center justify-center text-[10px] md:text-xs font-bold text-white">
