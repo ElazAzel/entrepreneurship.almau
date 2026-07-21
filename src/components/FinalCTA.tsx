@@ -24,8 +24,20 @@ export function FinalCTA() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4">
-        <div className="rounded-3xl border border-darkBorder bg-darkCard/80 backdrop-blur-sm p-8 md:p-14">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 mx-auto max-w-6xl px-4"
+      >
+        <motion.div
+          initial={{ scale: 0.95 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-3xl border border-darkBorder bg-darkCard/80 backdrop-blur-sm p-8 md:p-14"
+        >
           <div className="flex flex-col items-center text-center">
             <motion.h2
               initial={{ opacity: 0, y: 24 }}
@@ -75,8 +87,8 @@ export function FinalCTA() {
               </a>
             </motion.div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

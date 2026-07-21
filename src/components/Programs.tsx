@@ -17,7 +17,7 @@ function ProgramCard({ program, isOpen, onToggle, index }: {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className="group rounded-2xl border border-darkBorder bg-darkCard transition-all duration-300 hover:border-brandOrange/20"
+      className="group rounded-2xl border border-darkBorder bg-darkCard transition-all duration-300 hover:border-brandOrange/20 hover:shadow-[0_0_30px_rgba(235,96,27,0.08)] hover:scale-[1.01]"
     >
       <button
         onClick={onToggle}
