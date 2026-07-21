@@ -31,7 +31,7 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="mx-auto mt-4 max-w-xl text-sm text-textSecondary leading-relaxed"
+              className="mx-auto mt-4 max-w-xl text-sm text-textSecondary leading-relaxed break-words"
             >
               Выбери программу, задай вопрос и узнай, как поступить в Институт предпринимательства AlmaU.
             </motion.p>

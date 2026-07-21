@@ -12,7 +12,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <img src={logoSrc} alt="Institute for Entrepreneurship" className="h-8 w-auto mb-4" />
-            <p className="text-sm text-textSecondary leading-relaxed max-w-xs">
+            <p className="text-sm text-textSecondary leading-relaxed max-w-xs break-words">
               Institute for Entrepreneurship AlmaU — сообщество предпринимателей, студентов и экспертов.
             </p>
           </div>

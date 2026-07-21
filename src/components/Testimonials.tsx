@@ -54,10 +54,10 @@ export function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-2xl border border-darkBorder bg-darkCard p-8 md:p-10"
+              className="rounded-2xl border border-darkBorder bg-darkCard p-5 md:p-10"
             >
               <Quote className="h-7 w-7 text-brandOrange/30 mb-4" />
-              <p className="text-sm md:text-base text-textSecondary leading-relaxed">
+              <p className="text-sm md:text-base text-textSecondary leading-relaxed break-words">
                 {TESTIMONIALS[current].text}
               </p>
               <div className="mt-6 flex items-center justify-between">

@@ -55,7 +55,7 @@ function ProgramCard({ program, isOpen, onToggle, index }: {
           >
             <div className="border-t border-darkBorder px-6 md:px-7 pb-7">
               <p className="mt-4 text-sm text-textSecondary leading-relaxed">{program.description}</p>
-              <p className="mt-3 text-[11px] text-textMuted">{program.degree}</p>
+              <p className="mt-3 text-[11px] text-textMuted break-words">{program.degree}</p>
 
               <div className="mt-6 grid gap-6 md:grid-cols-2">
                 <div>

@@ -34,7 +34,7 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 text-sm md:text-base text-textSecondary leading-relaxed"
+              className="mt-4 text-sm md:text-base text-textSecondary leading-relaxed break-words"
             >
               {ABOUT.text}
             </motion.p>
