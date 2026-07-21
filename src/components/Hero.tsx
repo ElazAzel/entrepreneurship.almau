@@ -5,6 +5,14 @@ import Image from "next/image";
 import { WHATSAPP_LINK, HERO_BADGES, ARTICLE_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
+const STUDENT_FACES = [
+  "/images/photoshoot/2S2A2424.jpg",
+  "/images/photoshoot/2S2A2481.jpg",
+  "/images/photoshoot/2S2A2529.jpg",
+  "/images/photoshoot/2S2A2583.jpg",
+  "/images/photoshoot/2S2A2654.jpg",
+];
+
 function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -71,10 +79,10 @@ export function Hero() {
   const logoSrc = theme === "dark" ? "/logos/logotype-white.svg" : "/logos/logotype-blue.svg";
 
   return (
-    <section className="relative flex items-center bg-darkBg overflow-hidden min-h-[600px] md:min-h-dvh pt-16 pb-10 md:pt-0 md:pb-0">
+    <section className="relative flex items-center bg-darkBg overflow-hidden min-h-[600px] md:min-h-dvh pt-16 pb-0 md:pt-0 md:pb-0">
       <Particles />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:py-0">
         <div className="rounded-2xl md:rounded-3xl border border-darkBorder bg-darkCard/80 backdrop-blur-sm overflow-hidden">
           <div className="grid md:grid-cols-5">
             <div className="md:col-span-3 p-5 md:p-14">
@@ -108,10 +116,29 @@ export function Hero() {
                 </motion.p>
 
                 <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-5 flex items-center gap-3"
+                >
+                  <div className="flex -space-x-3">
+                    {STUDENT_FACES.map((src) => (
+                      <div key={src} className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-darkCard overflow-hidden bg-darkBg">
+                        <Image src={src} width={40} height={40} className="w-full h-full object-cover" alt="" />
+                      </div>
+                    ))}
+                    <div className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-darkCard bg-brandOrange flex items-center justify-center text-[10px] md:text-xs font-bold text-white">
+                      500+
+                    </div>
+                  </div>
+                  <span className="text-xs text-textMuted">студентов уже выбрали AlmaU</span>
+                </motion.div>
+
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2 md:gap-3 w-full"
+                  className="mt-5 md:mt-6 flex flex-col sm:flex-row items-center md:items-start gap-2 md:gap-3 w-full"
                 >
                   <a
                     href={WHATSAPP_LINK}
@@ -133,7 +160,7 @@ export function Hero() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="mt-4 md:mt-6 flex flex-wrap justify-center md:justify-start gap-1.5 md:gap-2"
+                  className="mt-4 md:mt-5 flex flex-wrap justify-center md:justify-start gap-1.5 md:gap-2"
                 >
                   {HERO_BADGES.map((badge) => (
                     <span
@@ -159,16 +186,16 @@ export function Hero() {
                 </motion.a>
               </div>
             </div>
-            <div className="hidden md:block md:col-span-2 relative min-h-[320px] overflow-hidden">
+            <div className="md:col-span-2 relative min-h-[220px] md:min-h-[400px] overflow-hidden">
               <Image
-                src="/images/photoshoot/2S2A3060.jpg"
+                src="/images/photoshoot/2S2A2892.jpg"
                 alt="Студенты Института предпринимательства AlmaU"
                 fill
                 className="object-cover"
-                sizes="40vw"
+                sizes="(max-width: 768px) 100vw, 40vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-darkCard/90" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-darkCard/90 md:bg-gradient-to-l md:from-transparent md:to-darkCard/90" />
             </div>
           </div>
         </div>
