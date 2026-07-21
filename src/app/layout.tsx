@@ -119,7 +119,7 @@ export default function RootLayout({
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "#0f1117",
-            transition: "opacity 0.5s ease, visibility 0.5s ease",
+            transition: "opacity 0.4s ease, transform 0.4s ease",
           }}
         >
           <svg width="64" height="64" viewBox="0 0 2000 2000" fill="none" style={{ animation: "preloaderPulse 1.5s ease-in-out infinite" }}>
@@ -134,7 +134,7 @@ export default function RootLayout({
           </p>
         </div>
         <script dangerouslySetInnerHTML={{
-          __html: `!function(){var p=document.getElementById("preloader");if(p){var h=function(){p.style.opacity="0";p.style.visibility="hidden";setTimeout(function(){p.parentNode.removeChild(p)},600)};if(document.readyState==="complete"||document.readyState==="interactive"){setTimeout(h,200)}else{document.addEventListener("DOMContentLoaded",function(){setTimeout(h,200)})}window.addEventListener("load",h)}}()`
+          __html: `!function(){var p=document.getElementById("preloader");if(p){var h=function(){p.style.opacity="0";p.style.transform="scale(0.95)";setTimeout(function(){p.style.display="none";p.parentNode.removeChild(p)},400)};var t=setTimeout(h,500);document.addEventListener("DOMContentLoaded",function(){clearTimeout(t);t=setTimeout(h,300)})}()}`
         }} />
         <CustomCursor />
         <ThemeProvider>
