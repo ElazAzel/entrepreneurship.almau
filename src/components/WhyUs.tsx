@@ -86,7 +86,7 @@ export function WhyUs() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative hidden md:block motion-reduce:hidden"
           >
-            <motion.div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-darkBorder" style={{ y: photoY }}>
+            <motion.div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-darkBorder motion-safe:animate-[float_3s_ease-in-out_infinite]" style={{ y: photoY }}>
               <Image
                 src={PHOTOS[0]}
                 alt="Студенты Института предпринимательства AlmaU"
@@ -96,7 +96,7 @@ export function WhyUs() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-darkCard/60 via-transparent to-transparent" />
             </motion.div>
-            <motion.div className="absolute -bottom-6 -left-6 w-2/3 aspect-square rounded-2xl overflow-hidden border border-darkBorder shadow-xl" style={{ y: photoY2 }}>
+            <motion.div className="absolute -bottom-6 -left-6 w-2/3 aspect-square rounded-2xl overflow-hidden border border-darkBorder shadow-xl motion-safe:animate-[float_4s_ease-in-out_infinite_0.5s]" style={{ y: photoY2 }}>
               <Image
                 src={PHOTOS[1]}
                 alt="Студенты AlmaU на мероприятии"
@@ -105,7 +105,7 @@ export function WhyUs() {
                 sizes="20vw"
               />
             </motion.div>
-            <motion.div className="absolute -top-4 -right-4 w-1/3 aspect-square rounded-2xl overflow-hidden border border-darkBorder shadow-xl" style={{ y: photoY }}>
+            <motion.div className="absolute -top-4 -right-4 w-1/3 aspect-square rounded-2xl overflow-hidden border border-darkBorder shadow-xl motion-safe:animate-[float_5s_ease-in-out_infinite_1s]" style={{ y: photoY }}>
               <Image
                 src={PHOTOS[2]}
                 alt="Студенческий проект AlmaU"
