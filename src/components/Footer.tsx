@@ -1,7 +1,9 @@
 "use client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { FOOTER_LINKS, FOOTER_CONTACTS, SOCIAL_LINKS, ALMAU_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
+import { getLocaleFromPath } from "@/lib/i18n";
 
 const socials = [
   { href: SOCIAL_LINKS.instagram, label: "Instagram", icon: <InstagramIcon /> },
@@ -12,8 +14,24 @@ const socials = [
   { href: SOCIAL_LINKS.linkm, label: "Linkm", icon: <span className="text-[10px] font-bold tracking-tight">LM</span> },
 ];
 
+const tFooter = {
+  ru: { description: "Institute for Entrepreneurship AlmaU — сообщество предпринимателей, студентов и экспертов.", nav: "Навигация", contacts: "Контакты", mainSite: "Основной сайт AlmaU", rights: "Все права защищены.", developed: "Сайт разработан" },
+  kk: { description: "Institute for Entrepreneurship AlmaU — кәсіпкерлер, студенттер және сарапшылар қауымдастығы.", nav: "Навигация", contacts: "Байланыс", mainSite: "AlmaU негізгі сайты", rights: "Барлық құқықтар қорғалған.", developed: "Сайт әзірленді" },
+  en: { description: "Institute for Entrepreneurship AlmaU — a community of entrepreneurs, students and experts.", nav: "Navigation", contacts: "Contacts", mainSite: "AlmaU main site", rights: "All rights reserved.", developed: "Site developed by" },
+};
+
+const tFooterLinks: Record<string, Record<string, string>> = {
+  kk: { "О нас": "Біз туралы", "Программы": "Бағдарламалар", "Поступление": "Қабылдау", "Гранты и стоимость": "Гранттар мен баға", "Карьера": "Мансап", "ЕНТ математика+география": "ҰБТ математика+география", "Сравнение программ": "Бағдарламаларды салыстыру", "Почему AlmaU": "Неге AlmaU", "Проходные баллы": "Өту балдары", "Топ университетов Алматы": "Алматы үздік университеттері" },
+  en: { "О нас": "About", "Программы": "Programs", "Поступление": "Admission", "Гранты и стоимость": "Grants & tuition", "Карьера": "Career", "ЕНТ математика+география": "UNT math+geography", "Сравнение программ": "Compare programs", "Почему AlmaU": "Why AlmaU", "Проходные баллы": "Threshold scores", "Топ университетов Алматы": "Top Almaty universities" },
+};
+
 export function Footer() {
   const { theme } = useTheme();
+  const pathname = usePathname();
+  const locale = getLocaleFromPath(pathname);
+  const t = tFooter[locale];
+  const linkOverrides = tFooterLinks[locale] || {};
+
   const logoSrc = theme === "dark" ? "/logos/logotype-white.svg" : "/logos/logotype-blue.svg";
 
   return (
@@ -23,7 +41,7 @@ export function Footer() {
           <div>
             <Image src={logoSrc} alt="Institute for Entrepreneurship" width={160} height={32} className="h-8 w-auto mb-4" />
             <p className="text-sm text-textSecondary leading-relaxed max-w-xs break-words">
-              Institute for Entrepreneurship AlmaU — сообщество предпринимателей, студентов и экспертов.
+              {t.description}
             </p>
             <a
               href={ALMAU_LINK}
@@ -31,13 +49,13 @@ export function Footer() {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-sm text-brandOrange hover:underline"
             >
-              Основной сайт AlmaU
+              {t.mainSite}
               <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
             </a>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>Навигация</h4>
+            <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>{t.nav}</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
@@ -45,7 +63,7 @@ export function Footer() {
                     href={link.href}
                     className="text-sm text-textSecondary hover:text-textPrimary transition-colors"
                   >
-                    {link.label}
+                    {linkOverrides[link.label] || link.label}
                   </a>
                 </li>
               ))}
@@ -53,7 +71,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>Контакты</h4>
+            <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>{t.contacts}</h4>
             <ul className="space-y-2 text-sm text-textSecondary">
               <li>
                 <a href={FOOTER_CONTACTS.locationUrl} target="_blank" rel="noopener noreferrer" className="hover:text-textPrimary transition-colors">
@@ -92,10 +110,10 @@ export function Footer() {
       <div className="border-t border-darkBorder py-6">
         <div className="mx-auto max-w-7xl px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-xs text-textMuted">
-            &copy; {new Date().getFullYear()} Institute for Entrepreneurship AlmaU. Все права защищены.
+            &copy; {new Date().getFullYear()} Institute for Entrepreneurship AlmaU. {t.rights}
           </p>
           <p className="text-xs text-textMuted">
-            Сайт разработан{" "}
+            {t.developed}{" "}
             <a
               href="https://www.instagram.com/elazart/"
               target="_blank"
@@ -155,5 +173,3 @@ function LinkedInIcon() {
     </svg>
   );
 }
-
-

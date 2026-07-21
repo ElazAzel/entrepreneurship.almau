@@ -25,6 +25,21 @@ export function Header() {
   const currentLocale = getLocaleFromPath(pathname);
   const ctaLabel = currentLocale === "kk" ? "Түсу" : currentLocale === "en" ? "Apply" : "Поступить";
 
+  const t = {
+    navLabels: currentLocale === "kk"
+      ? { "О нас": "Біз туралы", "Программы": "Бағдарламалар", "Поступление": "Қабылдау", "Гранты": "Гранттар", "Карьера": "Мансап", "ЕНТ": "ҰБТ" }
+      : currentLocale === "en"
+        ? { "О нас": "About", "Программы": "Programs", "Поступление": "Admission", "Гранты": "Grants", "Карьера": "Career", "ЕНТ": "UNT" }
+        : {},
+    navLabel: (ru: string) => (t.navLabels as Record<string, string>)[ru] || ru,
+    menuMore: { ru: "Ещё", kk: "Тағы", en: "More" }[currentLocale]!,
+    lightTheme: { ru: "Светлая тема", kk: "Ашық тақырып", en: "Light theme" }[currentLocale]!,
+    darkTheme: { ru: "Тёмная тема", kk: "Қараңғы тақырып", en: "Dark theme" }[currentLocale]!,
+    openMenu: { ru: "Открыть меню", kk: "Мәзірді ашу", en: "Open menu" }[currentLocale]!,
+    closeMenu: { ru: "Закрыть меню", kk: "Мәзірді жабу", en: "Close menu" }[currentLocale]!,
+    mainSite: { ru: "Основной сайт AlmaU", kk: "AlmaU негізгі сайты", en: "AlmaU main site" }[currentLocale]!,
+  };
+
   return (
     <>
       <header
@@ -40,7 +55,7 @@ export function Header() {
           }`}
         >
           <div className="flex items-center gap-1 px-2">
-            <a href="/" className="px-3 py-2">
+            <a href={currentLocale === "ru" ? "/" : `/${currentLocale}`} className="px-3 py-2">
               <Image
                 src={`/logos/emblem-${emblemTheme}.svg`}
                 alt="Institute for Entrepreneurship"
@@ -56,7 +71,7 @@ export function Header() {
                   href={item.href}
                   className="rounded-full px-3 py-2 text-sm font-medium text-textSecondary whitespace-nowrap transition-colors hover:text-textPrimary hover:bg-white/5"
                 >
-                  {item.label}
+                  {t.navLabel(item.label)}
                 </a>
               ))}
             </nav>
@@ -71,7 +86,7 @@ export function Header() {
             <button
               onClick={toggle}
               className="rounded-full p-2 text-textMuted hover:text-textPrimary hover:bg-white/5 transition-colors"
-              aria-label={theme === "dark" ? "Светлая тема" : "Тёмная тема"}
+              aria-label={theme === "dark" ? t.lightTheme : t.darkTheme}
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
@@ -90,7 +105,7 @@ export function Header() {
 
       <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden">
         <nav className="flex items-center justify-around px-2 py-2">
-          <a href="/" className="flex flex-col items-center gap-0.5 px-2 py-1">
+          <a href={currentLocale === "ru" ? "/" : `/${currentLocale}`} className="flex flex-col items-center gap-0.5 px-2 py-1">
             <Image
               src={`/logos/emblem-${emblemTheme}.svg`}
               alt="Institute for Entrepreneurship"
@@ -105,16 +120,16 @@ export function Header() {
               href={item.href}
               className="flex flex-col items-center gap-0.5 px-2 py-1 text-[10px] font-medium text-textSecondary"
             >
-              {item.label}
+              {t.navLabel(item.label)}
             </a>
           ))}
           <button
             onClick={() => setMenuOpen(true)}
             className="flex flex-col items-center gap-0.5 px-2 py-1 text-[10px] font-medium text-brandOrange"
-            aria-label="Открыть меню"
+            aria-label={t.openMenu}
           >
             <Menu className="h-5 w-5" />
-            Ещё
+            {t.menuMore}
           </button>
         </nav>
       </header>
@@ -130,7 +145,7 @@ export function Header() {
             <button
               onClick={() => setMenuOpen(false)}
               className="absolute top-5 right-5 p-2 text-textPrimary"
-              aria-label="Закрыть меню"
+              aria-label={t.closeMenu}
             >
               <X className="h-7 w-7" />
             </button>
@@ -140,7 +155,7 @@ export function Header() {
                 className="flex items-center gap-2 text-sm text-textSecondary hover:text-textPrimary transition-colors"
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-                {theme === "dark" ? "Светлая тема" : "Тёмная тема"}
+                {theme === "dark" ? t.lightTheme : t.darkTheme}
               </button>
               <motion.a
                 href={ALMAU_LINK}
@@ -151,7 +166,7 @@ export function Header() {
                 transition={{ delay: 0.08 }}
                 className="text-sm text-textSecondary hover:text-brandOrange transition-colors"
               >
-                Основной сайт AlmaU
+                {t.mainSite}
               </motion.a>
               <div className="flex items-center gap-4 text-sm">
                 <LangSwitcher />
@@ -166,7 +181,7 @@ export function Header() {
                   transition={{ delay: i * 0.08 }}
                   className="text-2xl font-semibold text-textPrimary transition-colors hover:text-brandOrange"
                 >
-                  {item.label}
+                  {t.navLabel(item.label)}
                 </motion.a>
               ))}
               <motion.a
