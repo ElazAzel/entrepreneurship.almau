@@ -14,7 +14,7 @@ const ruPrograms = [
   "/programs/bae", "/programs/creative-industries",
 ];
 
-const locPages = ["/admission", "/career", "/why-entrepreneurship-almau"];
+const locPages = ["", "/admission", "/career", "/why-entrepreneurship-almau"];
 const locPrograms = ruPrograms;
 
 export default function sitemap(): MetadataRoute.Sitemap {
