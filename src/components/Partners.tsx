@@ -22,7 +22,7 @@ const COLORS = [
 
 export function Partners() {
   return (
-    <section className="relative bg-darkCard/50 py-24 md:py-32 overflow-hidden border-y border-darkBorder">
+    <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <motion.div
@@ -66,7 +66,7 @@ export function Partners() {
               {[...ALL_PARTNERS, ...ALL_PARTNERS].map((item, i) => (
                 <div
                   key={`${item}-${i}`}
-                  className="flex items-center gap-3 flex-shrink-0 rounded-2xl border border-darkBorder bg-darkBg/80 backdrop-blur-sm px-5 py-3 transition-all duration-300 hover:border-brandOrange/20"
+                  className="flex items-center gap-3 flex-shrink-0 rounded-2xl border border-darkBorder bg-darkCard/60 px-5 py-3 transition-all duration-300 hover:border-brandOrange/20"
                 >
                   <div
                     className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-xs font-bold"
@@ -89,7 +89,7 @@ export function Partners() {
               {[...ALL_PARTNERS].reverse().concat([...ALL_PARTNERS].reverse()).map((item, i) => (
                 <div
                   key={`rev-${item}-${i}`}
-                  className="flex items-center gap-3 flex-shrink-0 rounded-2xl border border-darkBorder bg-darkBg/80 backdrop-blur-sm px-5 py-3 transition-all duration-300 hover:border-brandOrange/20"
+                  className="flex items-center gap-3 flex-shrink-0 rounded-2xl border border-darkBorder bg-darkCard/60 px-5 py-3 transition-all duration-300 hover:border-brandOrange/20"
                 >
                   <div
                     className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg text-xs font-bold"
