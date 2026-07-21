@@ -3,13 +3,6 @@ import { motion } from "framer-motion";
 import { PROJECTS } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
 
-const projectImages = [
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80",
-  "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
-];
-
 export function Projects() {
   return (
     <section id="projects" className="relative bg-darkCard/50 py-24 md:py-32 overflow-hidden border-b border-darkBorder">
@@ -46,28 +39,56 @@ export function Projects() {
           </motion.p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2">
-          {PROJECTS.map((project, i) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative overflow-hidden rounded-2xl border border-darkBorder bg-darkCard min-h-[240px] md:min-h-[280px] flex items-end transition-all duration-300 hover:border-brandOrange/20"
-            >
-              <img
-                src={projectImages[i]}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative overflow-hidden rounded-2xl border border-darkBorder bg-darkCard"
+          >
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube.com/embed/dEuiBNCW8F4"
+                title="StartUp Night AlmaU"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/40 to-transparent" />
-              <div className="relative z-10 p-6 md:p-7">
-                <h3 className="font-display text-lg md:text-xl font-bold text-white">{project.title}</h3>
-                <p className="mt-1.5 text-sm text-white/70 max-w-sm leading-relaxed">{project.text}</p>
+            </div>
+            <div className="p-5">
+              <span className="inline-block rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange uppercase tracking-wider">
+                Projectathon
+              </span>
+              <h3 className="mt-2 font-display text-lg font-bold text-textPrimary">StartUp Night AlmaU</h3>
+              <p className="mt-1 text-sm text-textSecondary">12 часов, команда, наставники, готовый проект</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="group relative overflow-hidden rounded-2xl border border-darkBorder bg-darkCard"
+          >
+            <div className="aspect-video relative bg-darkCard flex items-center justify-center">
+              <div className="text-center p-8">
+                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-textMuted">
+                  <svg className="h-6 w-6 text-textMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p className="text-sm text-textMuted">Видео Crack It появится здесь</p>
+                <p className="text-xs text-textMuted/50 mt-1">Скинь ссылку на YouTube</p>
               </div>
-            </motion.div>
-          ))}
+            </div>
+            <div className="p-5">
+              <span className="inline-block rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange uppercase tracking-wider">
+                Case Championship
+              </span>
+              <h3 className="mt-2 font-display text-lg font-bold text-textPrimary">Crack It</h3>
+              <p className="mt-1 text-sm text-textSecondary">Кейс-чемпионат: команды решают бизнес-задачи компаний</p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
