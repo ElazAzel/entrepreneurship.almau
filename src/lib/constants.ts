@@ -1,6 +1,5 @@
 export const WHATSAPP_LINK =
   "https://wa.me/77067066521?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20поступлении%20в%20Институт%20предпринимательства%20AlmaU.";
-
 export const INSTAGRAM_LINK = "https://www.instagram.com/entrepreneurship.almau/";
 export const INSTAGRAM_HANDLE = "@entrepreneurship.almau";
 
@@ -9,6 +8,7 @@ export const NAV_ITEMS = [
   { label: "Программы", href: "#programs" },
   { label: "Проекты", href: "#projects" },
   { label: "Студенты", href: "#students" },
+  { label: "FAQ", href: "#faq" },
   { label: "Instagram", href: "#instagram" },
 ] as const;
 
@@ -18,14 +18,6 @@ export const HERO_BADGES = [
   "Business cases",
   "International opportunities",
   "Entrepreneurial community",
-] as const;
-
-export const HERO_FLOATING_CARDS = [
-  "Startup Night",
-  "International Business",
-  "Digital Commerce",
-  "Crack It",
-  "Creative Industries",
 ] as const;
 
 export const ABOUT = {
@@ -186,22 +178,18 @@ export const PROJECTS = [
   {
     title: "Startup Night AlmaU",
     text: "Университетский projectathon: 12 часов, команда, наставники, готовый проект",
-    gradient: "from-electric/20 to-deepBlue/20",
   },
   {
     title: "Crack It",
     text: "Городской кейс-чемпионат: команды решают бизнес-задачи казахстанских и международных компаний",
-    gradient: "from-orange/20 to-gold/20",
   },
   {
     title: "Бизнес-завтраки",
     text: "Неформальные встречи с предпринимателями, инфлюенсерами и экспертами",
-    gradient: "from-violet/20 to-electric/20",
   },
   {
     title: "Экскурсии в компании",
     text: "Студенты видят бизнес изнутри, получают практический опыт",
-    gradient: "from-gold/20 to-orange/20",
   },
 ] as const;
 
@@ -242,4 +230,48 @@ export const TESTIMONIALS = [
   },
 ] as const;
 
-export const PARTNERS_COUNT = 6;
+export const FAQ_ITEMS = [
+  {
+    question: "Какие программы предлагает Институт предпринимательства?",
+    answer: "Мы предлагаем 3 программы бакалавриата — International Business, Digital Commerce, Business Administration in Entrepreneurship (BAE) — и 1 магистерскую программу «Управление в креативных индустриях». Все программы ориентированы на практику и предпринимательское мышление.",
+  },
+  {
+    question: "Как поступить в Институт предпринимательства AlmaU?",
+    answer: "Для поступления необходимо подать заявку через приёмную комиссию AlmaU, предоставить результаты ЕНТ или международных экзаменов (SAT, IELTS/TOEFL для англоязычных программ) и пройти собеседование. Свяжитесь с нами в WhatsApp для подробной консультации.",
+  },
+  {
+    question: "Есть ли бюджетные места или гранты?",
+    answer: "Да, AlmaU предоставляет государственные гранты и образовательные кредиты. Также доступны скидки при раннем поступлении и внутренние гранты университета для талантливых абитуриентов.",
+  },
+  {
+    question: "На каком языке проходят обучение?",
+    answer: "Программа International Business полностью на английском языке. BAE — на русском и английском. Digital Commerce и магистратура «Управление в креативных индустриях» — на русском языке.",
+  },
+  {
+    question: "Какие возможности для стажировок и карьеры?",
+    answer: "Студенты проходят стажировки в CMC, ERG, MOST Ventures, KUSTO Group, Казахювелир и других компаниях. Выпускники получают офферы от Google, Salem Social Media, BTS Digital и строят карьеру в международных и казахстанских компаниях.",
+  },
+  {
+    question: "Можно ли совмещать учёбу с работой или стартапом?",
+    answer: "Да, наш подход Learning-by-doing и Learning-by-creating-value предполагает, что студенты с первого курса работают над реальными проектами, запускают стартапы и параллельно строят карьеру. Программы построены так, чтобы давать максимум практики.",
+  },
+] as const;
+
+export const PARTNERS_LIST = [
+  "CMC", "ERG", "MOST Ventures", "KUSTO Group", "ChocoFamily", "Salem Social Media",
+] as const;
+
+export const FOOTER_LINKS = [
+  { label: "О нас", href: "#about" },
+  { label: "Программы", href: "#programs" },
+  { label: "Проекты", href: "#projects" },
+  { label: "Студенты", href: "#students" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Instagram", href: "#instagram" },
+] as const;
+
+export const FOOTER_CONTACTS = {
+  address: "г. Алматы, ул. Розыбакиева, 227",
+  phone: "+7 (706) 706-65-21",
+  email: "entrepreneurship@almau.edu.kz",
+} as const;

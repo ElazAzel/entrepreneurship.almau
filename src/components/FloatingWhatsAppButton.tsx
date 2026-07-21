@@ -9,7 +9,7 @@ export function FloatingWhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Написать в WhatsApp"
-      className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-orange p-3 text-white shadow-lg transition-transform duration-300 hover:scale-105 md:px-5 md:py-3 motion-safe:animate-[pulse-shadow_2.4s_ease-in-out_infinite]"
+      className="fixed bottom-20 right-4 z-50 flex items-center gap-2 rounded-full bg-brandOrange p-3 text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_rgba(235,96,27,0.4)] md:bottom-5 md:right-5 md:px-5 md:py-3"
     >
       <MessageCircle className="h-5 w-5" />
       <span className="hidden md:inline text-sm font-semibold whitespace-nowrap">

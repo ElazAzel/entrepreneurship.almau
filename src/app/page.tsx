@@ -6,9 +6,11 @@ import { Programs } from "@/components/Programs";
 import { Projects } from "@/components/Projects";
 import { Students } from "@/components/Students";
 import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
 import { InstagramSection } from "@/components/InstagramSection";
 import { Partners } from "@/components/Partners";
 import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -21,9 +23,11 @@ export default function Home() {
       <Projects />
       <Students />
       <Testimonials />
+      <FAQ />
       <InstagramSection />
       <Partners />
       <FinalCTA />
+      <Footer />
     </>
   );
 }

@@ -9,55 +9,82 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-darkBg/80 backdrop-blur-md border-b border-white/10 shadow-lg"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-        <a href="#" className="font-display text-lg font-bold text-white tracking-tight">
-          Institute for <span className="text-orange">Entrepreneurship</span> AlmaU
-        </a>
+    <>
+      <header
+        className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 hidden md:block ${
+          scrolled
+            ? "top-3"
+            : "top-5"
+        }`}
+      >
+        <div
+          className={`rounded-full border border-darkBorder transition-all duration-300 ${
+            scrolled
+              ? "bg-darkBg/90 backdrop-blur-xl shadow-lg"
+              : "bg-darkBg/50 backdrop-blur-sm"
+          }`}
+        >
+          <div className="flex items-center gap-1 px-2">
+            <a href="#" className="px-3 py-2">
+              <img
+                src="/logos/emblem-white.svg"
+                alt="Institute for Entrepreneurship"
+                className="h-7 w-auto"
+              />
+            </a>
+            <nav className="flex items-center gap-1">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-full px-3.5 py-2 text-sm font-medium text-textSecondary transition-colors hover:text-textPrimary hover:bg-white/5"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 rounded-full bg-brandOrange px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-brandOrange/90"
+            >
+              Поступить
+            </a>
+          </div>
+        </div>
+      </header>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          {NAV_ITEMS.map((item) => (
+      <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden">
+        <nav className="flex items-center justify-around px-2 py-2">
+          <a href="#" className="flex flex-col items-center gap-0.5 px-2 py-1">
+            <img src="/logos/emblem-white.svg" alt="Home" className="h-5 w-auto" />
+          </a>
+          {NAV_ITEMS.slice(0, 4).map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="relative text-sm font-medium text-white/70 transition-colors hover:text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-orange after:transition-all after:duration-300 hover:after:w-full"
+              className="flex flex-col items-center gap-0.5 px-2 py-1 text-[10px] font-medium text-textSecondary"
             >
               {item.label}
             </a>
           ))}
-        </nav>
-
-        <div className="hidden lg:block">
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-orange px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-orange/90"
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="flex flex-col items-center gap-0.5 px-2 py-1 text-[10px] font-medium text-brandOrange"
+            aria-label="Меню"
           >
-            Поступить
-          </a>
-        </div>
-
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-white"
-          aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
-        >
-          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </div>
+            <Menu className="h-5 w-5" />
+            Ещё
+          </button>
+        </nav>
+      </header>
 
       <AnimatePresence>
         {menuOpen && (
@@ -65,11 +92,11 @@ export function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-darkBg/95 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-darkBg/95 backdrop-blur-lg md:hidden"
           >
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-5 right-5 text-white"
+              className="absolute top-5 right-5 text-textPrimary"
               aria-label="Закрыть меню"
             >
               <X className="h-7 w-7" />
@@ -83,7 +110,7 @@ export function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 }}
-                  className="text-2xl font-display font-bold text-white transition-colors hover:text-orange"
+                  className="text-2xl font-bold text-textPrimary transition-colors hover:text-brandOrange"
                 >
                   {item.label}
                 </motion.a>
@@ -95,7 +122,7 @@ export function Header() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: NAV_ITEMS.length * 0.08 }}
-                className="mt-4 rounded-full bg-orange px-8 py-3 text-lg font-semibold text-white"
+                className="mt-4 rounded-full bg-brandOrange px-8 py-3 text-lg font-semibold text-white"
               >
                 Поступить
               </motion.a>
@@ -103,6 +130,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://entrepreneurship-almau.vercel.app/sitemap.xml

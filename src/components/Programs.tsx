@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Check } from "lucide-react";
 import { PROGRAMS, WHATSAPP_LINK } from "@/lib/constants";
+import { SectionBadge } from "@/components/SectionBadge";
 
 function ProgramCard({ program, isOpen, onToggle, index }: {
   program: typeof PROGRAMS[number];
@@ -14,29 +15,29 @@ function ProgramCard({ program, isOpen, onToggle, index }: {
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative rounded-2xl border border-deepBlue/10 bg-white transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,59,122,0.08)]"
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
+      className="group rounded-2xl border border-darkBorder bg-darkCard transition-all duration-300 hover:border-brandOrange/20"
     >
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between p-6 text-left"
+        className="flex w-full items-center justify-between p-6 md:p-7 text-left"
         aria-expanded={isOpen}
       >
-        <div className="flex-1">
-          <div className="flex items-center gap-2">
-            <span className="rounded-full bg-orange/10 px-3 py-0.5 text-xs font-medium text-orange">
+        <div className="flex-1 pr-4">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange">
               {program.level}
             </span>
           </div>
-          <h3 className="mt-2 font-display text-xl font-bold text-deepBlue">{program.title}</h3>
-          <p className="mt-0.5 text-sm text-deepBlue/50">{program.slugan}</p>
+          <h3 className="mt-2 font-display text-lg md:text-xl font-bold text-textPrimary">{program.title}</h3>
+          <p className="mt-0.5 text-sm text-textMuted">{program.slugan}</p>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3 }}
           className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full transition-colors ${
-            isOpen ? "bg-orange text-white" : "bg-deepBlue/10 text-deepBlue"
+            isOpen ? "bg-brandOrange text-white" : "bg-darkBorder text-textMuted"
           }`}
         >
           <Plus className="h-5 w-5" />
@@ -49,21 +50,20 @@ function ProgramCard({ program, isOpen, onToggle, index }: {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="border-t border-deepBlue/10 px-6 pb-6">
-              <p className="mt-4 text-sm text-deepBlue/70 leading-relaxed">{program.description}</p>
+            <div className="border-t border-darkBorder px-6 md:px-7 pb-7">
+              <p className="mt-4 text-sm text-textSecondary leading-relaxed">{program.description}</p>
+              <p className="mt-3 text-[11px] text-textMuted">{program.degree}</p>
 
-              <p className="mt-4 text-xs text-deepBlue/50">{program.degree}</p>
-
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
                 <div>
-                  <h4 className="text-sm font-semibold text-deepBlue">Траектории</h4>
-                  <ul className="mt-2 space-y-1">
+                  <h4 className="text-sm font-semibold text-textPrimary">Траектории</h4>
+                  <ul className="mt-2 space-y-1.5">
                     {program.tracks.map((t) => (
-                      <li key={t} className="flex items-start gap-2 text-sm text-deepBlue/60">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-electric" />
+                      <li key={t} className="flex items-start gap-2 text-sm text-textSecondary">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-brandOrange" />
                         {t}
                       </li>
                     ))}
@@ -71,28 +71,25 @@ function ProgramCard({ program, isOpen, onToggle, index }: {
                 </div>
 
                 <div>
-                  <h4 className="text-sm font-semibold text-deepBlue">Карьера</h4>
-                  <ul className="mt-2 space-y-1">
-                    {program.careers.slice(0, 5).map((c) => (
-                      <li key={c} className="flex items-start gap-2 text-sm text-deepBlue/60">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-orange" />
+                  <h4 className="text-sm font-semibold text-textPrimary">Карьера</h4>
+                  <ul className="mt-2 space-y-1.5">
+                    {program.careers.map((c) => (
+                      <li key={c} className="flex items-start gap-2 text-sm text-textSecondary">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-textMuted" />
                         {c}
                       </li>
                     ))}
                   </ul>
-                  {program.careers.length > 5 && (
-                    <p className="mt-1 text-xs text-deepBlue/40">и ещё {program.careers.length - 5}</p>
-                  )}
                 </div>
               </div>
 
               {program.advantages.length > 0 && (
-                <div className="mt-4">
-                  <h4 className="text-sm font-semibold text-deepBlue">Преимущества</h4>
-                  <ul className="mt-2 space-y-1">
+                <div className="mt-5">
+                  <h4 className="text-sm font-semibold text-textPrimary">Преимущества</h4>
+                  <ul className="mt-2 space-y-1.5">
                     {program.advantages.map((a) => (
-                      <li key={a} className="flex items-start gap-2 text-sm text-deepBlue/60">
-                        <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-gold" />
+                      <li key={a} className="flex items-start gap-2 text-sm text-textSecondary">
+                        <Check className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-brandOrange" />
                         {a}
                       </li>
                     ))}
@@ -111,28 +108,39 @@ export function Programs() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section id="programs" className="relative bg-bgLight py-24 md:py-32 overflow-hidden">
+    <section id="programs" className="relative bg-darkBg py-24 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-5xl px-4 md:px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-bold text-deepBlue leading-tight text-center"
-          style={{ fontSize: "clamp(28px, 3.6vw, 44px)" }}
-        >
-          Наши программы
-        </motion.h2>
+        <div className="flex flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <SectionBadge>Программы</SectionBadge>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto mt-4 max-w-2xl text-center text-deepBlue/60"
-        >
-          Выбери свой путь в предпринимательстве
-        </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-4 font-display font-bold text-textPrimary leading-tight"
+            style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
+          >
+            Наши программы
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-2 text-sm text-textSecondary"
+          >
+            Выбери свой путь в предпринимательстве
+          </motion.p>
+        </div>
 
         <div className="mt-12 space-y-4">
           {PROGRAMS.map((program, i) => (
@@ -150,14 +158,14 @@ export function Programs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="mt-12 text-center"
         >
           <a
             href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-orange px-8 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_0_30px_rgba(255,107,0,0.3)]"
+            className="inline-flex items-center gap-2 rounded-full bg-brandOrange px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_0_24px_rgba(235,96,27,0.35)]"
           >
             Узнать о поступлении
           </a>
