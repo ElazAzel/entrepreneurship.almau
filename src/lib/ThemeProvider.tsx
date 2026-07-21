@@ -29,6 +29,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.classList.toggle("light", theme === "light");
     localStorage.setItem("theme", theme);
+    window.dispatchEvent(new CustomEvent("theme-change"));
   }, [theme]);
 
   useEffect(() => {

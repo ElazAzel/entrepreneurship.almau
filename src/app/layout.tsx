@@ -103,8 +103,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)" />
         <script dangerouslySetInnerHTML={{
           __html: `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}var s=t==="light"||(!t&&matchMedia("(prefers-color-scheme:light)").matches);if(s)document.documentElement.classList.add("light")})()`
+        }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){var m=document.querySelector("meta[name=theme-color]");if(m){var u=function(){var t;try{t=localStorage.getItem("theme")}catch(e){}m.content=t==="light"||(!t&&matchMedia("(prefers-color-scheme:light)").matches)?"#f5f5f0":"#0f1117"};u();window.addEventListener("theme-change",u)}})()`
         }} />
       </head>
       <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">
