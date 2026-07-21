@@ -269,8 +269,54 @@ export const FAQ_ITEMS = [
   },
 ] as const;
 
-export const PARTNERS_LIST = [
-  "CMC", "ERG", "MOST Ventures", "KUSTO Group", "ChocoFamily", "Salem Social Media",
+export const PARTNERS_STRATEGIC = [
+  "ERG",
+  "University of Northampton",
+  "British Council",
+  "ZUFE",
+  "Фонд Ержана Татишева",
+  "Международный университет Кыргызской Республики",
+] as const;
+
+export const PARTNERS_CASES = [
+  "BI Group",
+  "Kcell",
+  "Mars Petcare",
+  "Verigram",
+  "BIART",
+  "inDrive",
+  "IZI",
+  "METRO",
+  "KazBeef",
+  "Atomy",
+  "BCD Travel",
+  "Almaty Tourism Bureau",
+  "Kolesa Group",
+  "Halyk Bank",
+  "Kaspi.kz",
+  "DAR",
+] as const;
+
+export const PARTNERS_EVENTS = [
+  "MOST BI",
+  "Skillbox",
+  "Qazaqitcom",
+  "Город 24 Алматы",
+  "Red Bull",
+  "Coca-Cola",
+  "Dodo Pizza",
+  "Magnum",
+  "1Fit",
+  "AlmaU Shop",
+  "peoplefirst",
+  "Design Thinking Center, Asia",
+] as const;
+
+export const PARTNERS_NETWORKS = [
+  "Babson Collaborative",
+  "BGA",
+  "AMBA",
+  "Enterprise Educators UK",
 ] as const;
 
 export const FOOTER_LINKS = [

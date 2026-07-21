@@ -2,7 +2,7 @@ import {SectionBadge} from "@/components/SectionBadge"
 import {FAQSection} from "@/components/FAQSection"
 import {CTASection} from "@/components/CTASection"
 import {CAREER_FAQ} from "@/lib/pages"
-import {PROGRAMS, WHATSAPP_LINK, PARTNERS_LIST} from "@/lib/constants"
+import {PROGRAMS, WHATSAPP_LINK, PARTNERS_STRATEGIC, PARTNERS_CASES, PARTNERS_EVENTS} from "@/lib/constants"
 import type {Metadata} from "next"
 
 export const revalidate = 604800
@@ -117,15 +117,24 @@ export default function CareerPage() {
               Студенты проходят практику в ведущих казахстанских и международных компаниях
             </p>
           </div>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            {PARTNERS_LIST.map((partner) => (
-              <div
-                key={partner}
-                className="rounded-xl border border-darkBorder bg-darkCard px-5 py-3 transition-all duration-300 hover:border-brandOrange/20"
-              >
-                <span className="text-sm font-semibold text-textSecondary tracking-wider uppercase whitespace-nowrap break-words">
-                  {partner}
-                </span>
+          <div className="mt-8 space-y-6">
+            {[
+              { label: "Стратегические партнёры", items: PARTNERS_STRATEGIC },
+              { label: "Компании с кейсами", items: PARTNERS_CASES },
+              { label: "Партнёры мероприятий", items: PARTNERS_EVENTS },
+            ].map((group) => (
+              <div key={group.label}>
+                <h3 className="text-xs font-semibold text-textMuted uppercase tracking-wider mb-3 text-center">{group.label}</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {group.items.map((partner) => (
+                    <span
+                      key={partner}
+                      className="rounded-xl border border-darkBorder bg-darkCard px-5 py-3 text-sm font-semibold text-textSecondary tracking-wider uppercase whitespace-nowrap transition-all duration-300 hover:border-brandOrange/20"
+                    >
+                      {partner}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
