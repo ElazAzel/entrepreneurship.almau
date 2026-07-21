@@ -6,7 +6,6 @@ import { Projects } from "@/components/Projects";
 import { Students } from "@/components/Students";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
-import { InstagramSection } from "@/components/InstagramSection";
 import { Gallery } from "@/components/Gallery";
 import { Partners } from "@/components/Partners";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -217,7 +216,6 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <Gallery />
-      <InstagramSection />
       <Partners />
 
       <FinalCTA />
