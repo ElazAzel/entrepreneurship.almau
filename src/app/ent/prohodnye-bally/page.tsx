@@ -263,7 +263,7 @@ export default function ProhodnyeBallyPage() {
               Проходные баллы в AlmaU
             </h2>
             <p className="mt-3 max-w-lg text-sm text-textSecondary leading-relaxed break-words">
-              AlmaU (Алматы Менеджмент Университет) — ведущий бизнес-вуз Казахстана. Проходные баллы зависят от программы и формы обучения.
+              AlmaU (Алматы Менеджмент Университет) — университет с фокусом на предпринимательство и бизнес-образование. Проходные баллы зависят от программы и формы обучения.
             </p>
           </div>
           <div className="mt-10 max-w-2xl mx-auto">

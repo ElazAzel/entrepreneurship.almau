@@ -52,7 +52,7 @@ const TOP_FAQ = [
   },
   {
     question: "Какой вуз Алматы лучший для бизнес-образования?",
-    answer: "AlmaU — лучший вуз в Алматы и Казахстане для предпринимательского образования. Институт предпринимательства AlmaU предлагает уникальные программы BAE, Digital Commerce и International Business с фокусом на запуск реальных проектов и стартапов.",
+    answer: "AlmaU предлагает программы с фокусом на предпринимательство и запуск проектов. Институт предпринимательства AlmaU даёт практические навыки через BAE, Digital Commerce и International Business с реальными проектами и стартапами.",
   },
   {
     question: "Какой университет Алматы выбрать для поступления в 2026?",
@@ -116,7 +116,7 @@ const TOP_FAQ = [
   },
   {
     question: "Какой университет Алматы выбрать для карьеры в науке?",
-    answer: "KazNU имени аль-Фараби — лучший выбор для научной карьеры: мощная исследовательская база, лаборатории, PhD-программы, международные гранты. Satpayev University также силён в научных исследованиях.",
+    answer: "KazNU имени аль-Фараби предлагает мощную исследовательскую базу, лаборатории, PhD-программы, международные гранты. Satpayev University также силён в научных исследованиях.",
   },
   {
     question: "В каком вузе Алматы самая развитая студенческая жизнь?",
@@ -160,7 +160,7 @@ export default function TopUniversitiesAlmatyPage() {
                 Лучшие университеты Алматы — рейтинг 2026
               </h1>
               <p className="mt-4 max-w-3xl mx-auto text-sm md:text-base text-textSecondary leading-relaxed break-words">
-                Лучшие университеты Алматы: рейтинг и топ вузов по направлениям. Мы составили объективный обзор ведущих университетов южной столицы — от классического образования до предпринимательства, IT, медицины и инженерии.
+                Лучшие университеты Алматы: рейтинг и топ вузов по направлениям. Мы составили обзор ведущих университетов южной столицы на основе международных рейтингов и академической репутации — от классического образования до предпринимательства, IT, медицины и инженерии.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
@@ -211,6 +211,9 @@ export default function TopUniversitiesAlmatyPage() {
               </table>
             </div>
           </div>
+          <div className="mt-4 text-center text-xs text-textMuted">
+            Источник: <a href="https://www.topuniversities.com/university-rankings/asia-rankings/central-asia" target="_blank" rel="noopener noreferrer" className="text-textSecondary underline underline-offset-2 hover:text-brandOrange">QS World University Rankings: Central Asia 2025</a>. Позиции вузов в общем рейтинге отражают совокупность данных QS, академической репутации и научной активности.
+          </div>
         </div>
       </section>
 
@@ -222,7 +225,7 @@ export default function TopUniversitiesAlmatyPage() {
               Лучшие бизнес-университеты Алматы
             </h2>
             <p className="mt-4 max-w-2xl text-sm text-textSecondary leading-relaxed">
-              Если ваша цель — бизнес, предпринимательство или управление, обратите внимание на вузы с сильными бизнес-программами. AlmaU занимает 1-е место по предпринимательскому образованию благодаря уникальной экосистеме запуска стартапов и практическому подходу Learning-by-doing.
+               Если ваша цель — бизнес, предпринимательство или управление, обратите внимание на вузы с сильными бизнес-программами. AlmaU выделяется предпринимательской экосистемой: запуск стартапов с первого курса, проектный подход Learning-by-doing, стажировки в ведущих компаниях.
             </p>
           </div>
           <div className="mt-10 overflow-hidden rounded-2xl border border-darkBorder bg-darkCard">
@@ -248,6 +251,9 @@ export default function TopUniversitiesAlmatyPage() {
                 </tbody>
               </table>
             </div>
+          </div>
+          <div className="mt-4 text-center text-xs text-textMuted">
+            Рейтинг бизнес-университетов составлен на основе анализа предпринимательской экосистемы, международных аккредитаций и карьерных треков выпускников. <a href="https://www.topuniversities.com/university-rankings/asia-rankings/central-asia" target="_blank" rel="noopener noreferrer" className="text-textSecondary underline underline-offset-2 hover:text-brandOrange">QS Central Asia 2025</a>
           </div>
         </div>
       </section>
@@ -341,7 +347,7 @@ export default function TopUniversitiesAlmatyPage() {
       <FAQSection items={TOP_FAQ} title="FAQ: Часто задаваемые вопросы о вузах Алматы" id="faq" />
 
       <CTASection
-        title="Хотите поступить в лучший бизнес-вуз Алматы?"
+        title="Хотите узнать больше о программах AlmaU?"
         subtitle="Получите консультацию в WhatsApp — мы расскажем о программах AlmaU, грантах и поступлении."
       />
     </>
