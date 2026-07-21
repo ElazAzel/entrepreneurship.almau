@@ -58,6 +58,7 @@
 .light .bg-darkBg\/95 { background-color: rgba(245, 245, 240, 0.95); }
 .light .bg-darkCard { background-color: #ffffff; }
 .light .bg-darkCard\/50 { background-color: rgba(255, 255, 255, 0.5); }
+.light .bg-darkCard\/60 { background-color: rgba(255, 255, 255, 0.6); }
 .light .bg-darkCard\/80 { background-color: rgba(255, 255, 255, 0.8); }
 .light .bg-darkBorder { background-color: rgba(0, 0, 0, 0.08); }
 .light .border-darkBorder { border-color: rgba(0, 0, 0, 0.1); }

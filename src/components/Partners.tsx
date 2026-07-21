@@ -22,7 +22,7 @@ const COLORS = [
 
 export function Partners() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-darkBg py-24 md:py-32 overflow-hidden border-y border-darkBorder">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <motion.div
