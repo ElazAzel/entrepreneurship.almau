@@ -4,10 +4,10 @@ const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com https://mc.yandex.ru",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://mc.yandex.ru",
+  "img-src 'self' data: blob: https://mc.yandex.ru https://yandex.ru",
   "font-src 'self'",
   "frame-src https://www.youtube.com",
-  "connect-src 'self' https://wa.me https://mc.yandex.ru",
+  "connect-src 'self' https://wa.me https://mc.yandex.ru wss://mc.yandex.ru",
   "base-uri 'self'",
   "form-action 'self'",
 ].join("; ");
