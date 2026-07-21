@@ -1,12 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINK, INSTAGRAM_LINK } from "@/lib/constants";
 
 export function FinalCTA() {
   return (
     <section className="relative py-24 md:py-32 bg-darkBg overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,58,137,0.15),transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none motion-reduce:hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl aspect-video opacity-[0.04] rounded-3xl overflow-hidden">
+          <Image
+            src="/images/photoshoot/2S2A2849.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="80vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,58,137,0.15),transparent_60%)]" />
+      </div>
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-brandOrange/10 blur-[100px] motion-safe:animate-[pulse-glow_6s_ease-in-out_infinite] pointer-events-none"
         aria-hidden="true"

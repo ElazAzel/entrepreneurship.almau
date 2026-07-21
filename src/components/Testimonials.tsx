@@ -1,9 +1,17 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
+
+const testimonialPhotos = [
+  "/images/photoshoot/2S2A2817.jpg",
+  "/images/photoshoot/2S2A3001.jpg",
+  "/images/photoshoot/2S2A3028.jpg",
+  "/images/photoshoot/2S2A3060.jpg",
+];
 
 export function Testimonials() {
   const [current, setCurrent] = useState(0);
@@ -56,14 +64,38 @@ export function Testimonials() {
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="rounded-2xl border border-darkBorder bg-darkCard p-5 md:p-10"
             >
-              <Quote className="h-7 w-7 text-brandOrange/30 mb-4" />
-              <p className="text-sm md:text-base text-textSecondary leading-relaxed break-words">
-                {TESTIMONIALS[current].text}
-              </p>
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="hidden sm:block relative flex-shrink-0 w-16 h-16 rounded-full overflow-hidden border-2 border-darkBorder mt-1">
+                  <Image
+                    src={testimonialPhotos[current % testimonialPhotos.length]}
+                    alt={TESTIMONIALS[current].name}
+                    fill
+                    className="object-cover"
+                    sizes="64px"
+                  />
+                </div>
+                <div>
+                  <Quote className="h-7 w-7 text-brandOrange/30 mb-2" />
+                  <p className="text-sm md:text-base text-textSecondary leading-relaxed break-words">
+                    {TESTIMONIALS[current].text}
+                  </p>
+                </div>
+              </div>
               <div className="mt-6 flex items-center justify-between">
-                <p className="font-display font-bold text-textPrimary">
-                  {TESTIMONIALS[current].name}
-                </p>
+                <div className="flex items-center gap-3">
+                  <div className="relative sm:hidden w-8 h-8 rounded-full overflow-hidden border border-darkBorder flex-shrink-0">
+                    <Image
+                      src={testimonialPhotos[current % testimonialPhotos.length]}
+                      alt={TESTIMONIALS[current].name}
+                      fill
+                      className="object-cover"
+                      sizes="32px"
+                    />
+                  </div>
+                  <p className="font-display font-bold text-textPrimary">
+                    {TESTIMONIALS[current].name}
+                  </p>
+                </div>
                 <div className="flex gap-2">
                   <button
                     onClick={prev}
