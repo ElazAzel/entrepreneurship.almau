@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Карьера после AlmaU: кем работают выпускники",
   description:
     "Узнайте о карьерных треках, стажировках и трудоустройстве выпускников Института предпринимательства AlmaU. International Business, Digital Commerce, BAE, креативные индустрии.",
+  alternates: { canonical: "/career" },
 }
 
 const breadcrumbJsonLd = {
