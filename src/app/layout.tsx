@@ -134,7 +134,7 @@ export default function RootLayout({
           </p>
         </div>
         <script dangerouslySetInnerHTML={{
-          __html: `!function(){var p=document.getElementById("preloader");if(p){var h=function(){p.style.opacity="0";p.style.transform="scale(0.95)";setTimeout(function(){p.style.display="none";p.parentNode.removeChild(p)},400)};var t=setTimeout(h,500);document.addEventListener("DOMContentLoaded",function(){clearTimeout(t);t=setTimeout(h,300)})}()}`
+          __html: `!function(){var p=document.getElementById("preloader");if(p){var h=function(){p.style.opacity="0";p.style.transform="scale(0.95)";setTimeout(function(){p.style.display="none";p.parentNode.removeChild(p)},400)};var t=setTimeout(h,500);document.addEventListener("DOMContentLoaded",function(){clearTimeout(t);t=setTimeout(h,300)})}}()`
         }} />
         <CustomCursor />
         <ThemeProvider>
