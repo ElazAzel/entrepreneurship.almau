@@ -221,16 +221,6 @@ export default function Home() {
       <Partners />
 
       <FinalCTA />
-
-      {/* Автор и дата */}
-      <section className="py-12 md:py-16 bg-darkCard/30 border-t border-darkBorder">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-xs text-textMuted leading-relaxed">
-            Материал подготовил Ильяс Азелханов, руководитель проектов Института предпринимательства AlmaU, сертифицированный бизнес-трекер и организатор студенческих предпринимательских программ.
-          </p>
-          <p className="mt-2 text-xs text-textMuted">Обновлено: 21 июля 2026 года</p>
-        </div>
-      </section>
     </>
   );
 }

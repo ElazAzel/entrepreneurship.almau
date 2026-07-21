@@ -180,15 +180,6 @@ export default function GrantsTuitionPage() {
 
       <FAQSection items={GRANTS_FAQ} title="FAQ: Гранты, скидки и оплата обучения" id="faq" />
 
-      <section className="py-12 md:py-16 bg-darkCard/30 border-y border-darkBorder">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-xs text-textMuted">
-            Материал подготовил Ильяс Азелханов, руководитель проектов Института предпринимательства AlmaU, сертифицированный бизнес-трекер и организатор студенческих предпринимательских программ.
-          </p>
-          <p className="mt-2 text-xs text-textMuted">Обновлено: 21 июля 2026 года</p>
-        </div>
-      </section>
-
       <CTASection
         title="Хотите узнать о скидках и грантах?"
         subtitle="Уточните условия поступления, гранты и стоимость обучения в WhatsApp."

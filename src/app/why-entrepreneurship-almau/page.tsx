@@ -202,15 +202,6 @@ export default function WhyAlmaUPage() {
 
       <FAQSection items={WHY_FAQ} title="FAQ: Почему AlmaU" id="faq" />
 
-      <section className="py-12 md:py-16 bg-darkCard/30 border-y border-darkBorder">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-xs text-textMuted">
-            Материал подготовил Ильяс Азелханов, руководитель проектов Института предпринимательства AlmaU, сертифицированный бизнес-трекер и организатор студенческих предпринимательских программ.
-          </p>
-          <p className="mt-2 text-xs text-textMuted">Обновлено: 21 июля 2026 года</p>
-        </div>
-      </section>
-
       <CTASection
         title="Хотите узнать больше?"
         subtitle="Напишите нам в WhatsApp — расскажем о программах, поступлении и преимуществах обучения."

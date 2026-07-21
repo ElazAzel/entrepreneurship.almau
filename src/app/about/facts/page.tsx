@@ -133,14 +133,6 @@ export default function FactsPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-darkCard/30 border-y border-darkBorder">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-xs text-textMuted">
-            Обновлено: 21 июля 2026 года. Информация проверена и соответствует официальным данным Института предпринимательства AlmaU.
-          </p>
-        </div>
-      </section>
-
       <CTASection />
     </>
   );

@@ -340,15 +340,6 @@ export default function TopUniversitiesAlmatyPage() {
 
       <FAQSection items={TOP_FAQ} title="FAQ: Часто задаваемые вопросы о вузах Алматы" id="faq" />
 
-      <section className="py-12 md:py-16 bg-darkCard/30 border-y border-darkBorder">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-xs text-textMuted">
-            Материал подготовил Ильяс Азелханов, руководитель проектов Института предпринимательства AlmaU, сертифицированный бизнес-трекер и организатор студенческих предпринимательских программ.
-          </p>
-          <p className="mt-2 text-xs text-textMuted">Обновлено: 21 июля 2026 года</p>
-        </div>
-      </section>
-
       <CTASection
         title="Хотите поступить в лучший бизнес-вуз Алматы?"
         subtitle="Получите консультацию в WhatsApp — мы расскажем о программах AlmaU, грантах и поступлении."
