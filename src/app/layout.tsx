@@ -110,6 +110,7 @@ export default function RootLayout({
       <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">
         <div
           id="preloader"
+          className="preloader"
           style={{
             position: "fixed",
             inset: 0,
@@ -119,7 +120,6 @@ export default function RootLayout({
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "#0f1117",
-            transition: "opacity 0.4s ease, transform 0.4s ease",
           }}
         >
           <svg width="64" height="64" viewBox="0 0 2000 2000" fill="none" style={{ animation: "preloaderPulse 1.5s ease-in-out infinite" }}>
@@ -133,9 +133,6 @@ export default function RootLayout({
             Institute for Entrepreneurship
           </p>
         </div>
-        <script dangerouslySetInnerHTML={{
-          __html: `!function(){var p=document.getElementById("preloader");if(p){var h=function(){if(p){p.style.opacity="0";p.style.transform="scale(0.95)";setTimeout(function(){if(p)p.style.display="none"},400)}};var t=setTimeout(h,500);document.addEventListener("DOMContentLoaded",function(){clearTimeout(t);t=setTimeout(h,300)})}}()`
-        }} />
         <CustomCursor />
         <ThemeProvider>
           <a

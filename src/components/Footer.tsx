@@ -55,7 +55,11 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>Контакты</h4>
             <ul className="space-y-2 text-sm text-textSecondary">
-              <li>{FOOTER_CONTACTS.address}</li>
+              <li>
+                <a href={FOOTER_CONTACTS.locationUrl} target="_blank" rel="noopener noreferrer" className="hover:text-textPrimary transition-colors">
+                  {FOOTER_CONTACTS.address}
+                </a>
+              </li>
               <li>
                 <a href={`tel:${FOOTER_CONTACTS.phone}`} className="hover:text-textPrimary transition-colors">
                   {FOOTER_CONTACTS.phone}

@@ -48,7 +48,7 @@ export default function FactsPage() {
             Об организации
           </h2>
           <dl className="mt-10 space-y-6">
-            {[
+            {([
               { term: "Полное название", def: "Institute for Entrepreneurship AlmaU (Институт предпринимательства AlmaU)" },
               { term: "Принадлежность", def: "Almaty Management University (AlmaU)" },
               { term: "Город", def: "Алматы, Казахстан" },
@@ -60,10 +60,18 @@ export default function FactsPage() {
               { term: "Языки обучения", def: "Русский, английский (в зависимости от программы)" },
               { term: "Форма обучения", def: "Очная" },
               { term: "Сроки обучения", def: "Бакалавриат — 3 года, магистратура — 2 года" },
-            ].map((item) => (
+            ] as const).map((item) => (
               <div key={item.term} className="flex flex-col sm:flex-row gap-1 sm:gap-4">
                 <dt className="sm:w-64 text-sm font-semibold text-textPrimary flex-shrink-0">{item.term}</dt>
-                <dd className="text-sm text-textSecondary">{item.def}</dd>
+                <dd className="text-sm text-textSecondary">
+                  {item.term === "Адрес" ? (
+                    <a href={FOOTER_CONTACTS.locationUrl} target="_blank" rel="noopener noreferrer" className="hover:text-brandOrange transition-colors">{item.def}</a>
+                  ) : item.term === "Телефон" ? (
+                    <a href={`tel:${FOOTER_CONTACTS.phone.replace(/\s/g, "")}`} className="hover:text-brandOrange transition-colors">{item.def}</a>
+                  ) : item.term === "Email" ? (
+                    <a href={`mailto:${FOOTER_CONTACTS.email}`} className="hover:text-brandOrange transition-colors">{item.def}</a>
+                  ) : item.def}
+                </dd>
               </div>
             ))}
           </dl>

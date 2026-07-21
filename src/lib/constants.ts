@@ -332,6 +332,7 @@ export const FOOTER_LINKS = [
 
 export const FOOTER_CONTACTS = {
   address: "г. Алматы, ул. Розыбакиева, 227",
+  locationUrl: "https://go.2gis.com/hFPtf",
   phone: "+7 (706) 706-65-21",
   email: "entrepreneurship@almau.edu.kz",
 } as const;

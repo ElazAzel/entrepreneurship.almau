@@ -201,7 +201,9 @@ export default function AdmissionPage() {
                 </div>
                 <div>
                   <p className="text-xs text-textMuted uppercase tracking-wider">Адрес</p>
-                  <p className="mt-1 text-sm md:text-base text-textPrimary break-words">{FOOTER_CONTACTS.address}</p>
+                  <a href={FOOTER_CONTACTS.locationUrl} target="_blank" rel="noopener noreferrer" className="mt-1 text-sm md:text-base text-textPrimary hover:text-brandOrange transition-colors break-words">
+                    {FOOTER_CONTACTS.address}
+                  </a>
                 </div>
               </div>
               <div className="pt-2">
