@@ -77,7 +77,7 @@ export function Students() {
         </div>
 
         <div className="mt-10 flex justify-center gap-3">
-          {["/images/photoshoot/2S2A2817.jpg", "/images/photoshoot/2S2A3001.jpg", "/images/photoshoot/2S2A3028.jpg", "/images/photoshoot/2S2A3060.jpg", "/images/photoshoot/2S2A3141.jpg"].map((src, i) => (
+          {["/images/photoshoot/2S2A2807.jpg", "/images/photoshoot/2S2A3001.jpg", "/images/photoshoot/2S2A3028.jpg", "/images/photoshoot/2S2A3060.jpg", "/images/photoshoot/2S2A3141.jpg"].map((src, i) => (
             <motion.div
               key={src}
               initial={{ opacity: 0, y: 16 }}

@@ -7,7 +7,7 @@ import { TESTIMONIALS } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
 
 const testimonialPhotos = [
-  "/images/photoshoot/2S2A2817.jpg",
+  "/images/photoshoot/2S2A2807.jpg",
   "/images/photoshoot/2S2A3001.jpg",
   "/images/photoshoot/2S2A3028.jpg",
   "/images/photoshoot/2S2A3060.jpg",
