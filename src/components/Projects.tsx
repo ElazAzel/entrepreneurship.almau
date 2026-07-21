@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { PROJECTS } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
 
 export function Projects() {
@@ -72,14 +71,14 @@ export function Projects() {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="group relative overflow-hidden rounded-2xl border border-darkBorder bg-darkCard"
           >
-            <div className="aspect-video relative bg-darkCard flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-textMuted">
-                  <svg className="h-6 w-6 text-textMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </div>
-                <p className="text-sm text-textMuted">Видео Crack It появится здесь</p>
-                <p className="text-xs text-textMuted/50 mt-1">Скинь ссылку на YouTube</p>
-              </div>
+            <div className="aspect-video relative">
+              <iframe
+                src="https://www.youtube.com/embed/sL-7IfplHAE"
+                title="Crack It AlmaU"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
             </div>
             <div className="p-5">
               <span className="inline-block rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange uppercase tracking-wider">

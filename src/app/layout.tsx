@@ -54,6 +54,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}var s=t==="light"||(!t&&matchMedia("(prefers-color-scheme:light)").matches);if(s)document.documentElement.classList.add("light")})()`
+        }} />
       </head>
       <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">
         <ThemeProvider>

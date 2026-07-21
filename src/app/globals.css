@@ -56,7 +56,7 @@
   --font-display: "Cera Pro", system-ui, sans-serif;
 }
 
-.light {
+:root.light {
   --color-darkBg: #f8f9fa;
   --color-darkCard: #ffffff;
   --color-darkBorder: #e2e8f0;

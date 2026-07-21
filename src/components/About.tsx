@@ -64,17 +64,15 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative rounded-3xl overflow-hidden min-h-[300px] md:min-h-[500px]"
+            className="relative rounded-3xl overflow-hidden aspect-video"
           >
-            <img
-              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
-              alt="Обучение в AlmaU"
-              className="absolute inset-0 w-full h-full object-cover"
+            <iframe
+              src="https://www.youtube.com/embed/sN2qEuymzsI"
+              title="О Институте предпринимательства AlmaU"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full rounded-3xl"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-darkBg/60 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <span className="text-xs text-white/60">AlmaU — сообщество будущих предпринимателей</span>
-            </div>
           </motion.div>
         </div>
       </div>
