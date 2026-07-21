@@ -16,8 +16,8 @@ export const INSTAGRAM_LINK = "https://www.instagram.com/entrepreneurship.almau/
 export const INSTAGRAM_HANDLE = "@entrepreneurship.almau";
 
 export const NAV_ITEMS = [
-  { label: "О нас", href: "#about" },
-  { label: "Программы", href: "#programs" },
+  { label: "О нас", href: "/#about" },
+  { label: "Программы", href: "/#programs" },
   { label: "Поступление", href: "/admission" },
   { label: "Гранты", href: "/admission/grants-and-tuition" },
   { label: "Карьера", href: "/career" },
@@ -320,8 +320,8 @@ export const PARTNERS_NETWORKS = [
 ] as const;
 
 export const FOOTER_LINKS = [
-  { label: "О нас", href: "#about" },
-  { label: "Программы", href: "#programs" },
+  { label: "О нас", href: "/#about" },
+  { label: "Программы", href: "/#programs" },
   { label: "Поступление", href: "/admission" },
   { label: "Гранты и стоимость", href: "/admission/grants-and-tuition" },
   { label: "Карьера", href: "/career" },

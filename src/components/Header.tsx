@@ -34,7 +34,7 @@ export function Header() {
           }`}
         >
           <div className="flex items-center gap-1 px-2">
-            <a href="#" className="px-3 py-2">
+            <a href="/" className="px-3 py-2">
               <Image
                 src={`/logos/emblem-${emblemTheme}.svg`}
                 alt="Institute for Entrepreneurship"
@@ -83,7 +83,7 @@ export function Header() {
 
       <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden">
         <nav className="flex items-center justify-around px-2 py-2">
-          <a href="#" className="flex flex-col items-center gap-0.5 px-2 py-1">
+          <a href="/" className="flex flex-col items-center gap-0.5 px-2 py-1">
             <Image
               src={`/logos/emblem-${emblemTheme}.svg`}
               alt="Institute for Entrepreneurship"

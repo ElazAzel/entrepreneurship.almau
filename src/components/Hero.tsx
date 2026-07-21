@@ -149,7 +149,7 @@ export function Hero() {
                     Хочу поступить
                   </a>
                   <a
-                    href="#programs"
+                    href="/#programs"
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-darkBorder px-6 py-2.5 md:px-7 md:py-3 text-sm font-semibold text-textSecondary transition-all duration-300 hover:bg-darkCard hover:text-textPrimary"
                   >
                     Смотреть программы
