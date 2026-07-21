@@ -1,5 +1,15 @@
 export const ARTICLE_LINK = "https://er10.kz/read/sozdaj-biznes-budushhego-kak-kazahstancam-postroit-uspeshnyj-startap-s-globalnym-potencialom/";
 
+export const ALMAU_LINK = "https://almau.edu.kz/";
+export const SOCIAL_LINKS = {
+  linkm: "https://lnkmx.my/entrepreneurshipalmau",
+  facebook: "https://www.facebook.com/entrepreneurship.almau/",
+  tiktok: "https://www.tiktok.com/@entrepreneurship.almau",
+  youtube: "https://www.youtube.com/@entrepreneurshipinnovation2846",
+  instagram: "https://www.instagram.com/entrepreneurship.almau/",
+  linkedin: "https://www.linkedin.com/company/institute-entrepreneurship-innovation/",
+} as const;
+
 export const WHATSAPP_LINK =
   "https://wa.me/77067066521?text=Здравствуйте!%20Хочу%20узнать%20подробнее%20о%20поступлении%20в%20Институт%20предпринимательства%20AlmaU.";
 export const INSTAGRAM_LINK = "https://www.instagram.com/entrepreneurship.almau/";

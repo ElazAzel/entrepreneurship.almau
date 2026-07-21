@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { NAV_ITEMS, WHATSAPP_LINK } from "@/lib/constants";
+import { NAV_ITEMS, WHATSAPP_LINK, ALMAU_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
 export function Header() {
@@ -47,9 +47,17 @@ export function Header() {
                 </a>
               ))}
             </nav>
+            <a
+              href={ALMAU_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 rounded-full px-3 py-2 text-xs font-medium text-textMuted hover:text-textPrimary hover:bg-white/5 transition-colors"
+            >
+              AlmaU
+            </a>
             <button
               onClick={toggle}
-              className="ml-2 rounded-full p-2 text-textMuted hover:text-textPrimary hover:bg-white/5 transition-colors"
+              className="rounded-full p-2 text-textMuted hover:text-textPrimary hover:bg-white/5 transition-colors"
               aria-label={theme === "dark" ? "Светлая тема" : "Тёмная тема"}
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -114,6 +122,17 @@ export function Header() {
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 {theme === "dark" ? "Светлая тема" : "Тёмная тема"}
               </button>
+              <motion.a
+                href={ALMAU_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.08 }}
+                className="text-sm text-textSecondary hover:text-brandOrange transition-colors"
+              >
+                Основной сайт AlmaU
+              </motion.a>
               {NAV_ITEMS.map((item, i) => (
                 <motion.a
                   key={item.href}
