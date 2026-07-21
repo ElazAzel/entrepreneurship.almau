@@ -8,7 +8,7 @@ const socials = [
   { href: SOCIAL_LINKS.tiktok, label: "TikTok", icon: <TikTokIcon /> },
   { href: SOCIAL_LINKS.youtube, label: "YouTube", icon: <YouTubeIcon /> },
   { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", icon: <LinkedInIcon /> },
-  { href: SOCIAL_LINKS.linkm, label: "Linkm", icon: <LinkIcon /> },
+  { href: SOCIAL_LINKS.linkm, label: "Linkm", icon: <span className="text-[10px] font-bold tracking-tight">LM</span> },
 ];
 
 export function Footer() {
@@ -151,11 +151,4 @@ function LinkedInIcon() {
   );
 }
 
-function LinkIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-    </svg>
-  );
-}
+
