@@ -5,10 +5,26 @@ import { INSTAGRAM_LINK, INSTAGRAM_HANDLE } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
 
 const instagramPosts = [
-  { id: 1, label: "Мероприятия" },
-  { id: 2, label: "Студенческая жизнь" },
-  { id: 3, label: "Проекты" },
-  { id: 4, label: "Новости" },
+  {
+    id: 1,
+    label: "Мероприятия",
+    img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
+  },
+  {
+    id: 2,
+    label: "Студенческая жизнь",
+    img: "https://images.unsplash.com/photo-1523050854058-8df90110c9a3?w=400&q=80",
+  },
+  {
+    id: 3,
+    label: "Проекты",
+    img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&q=80",
+  },
+  {
+    id: 4,
+    label: "Новости",
+    img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80",
+  },
 ];
 
 export function InstagramSection() {
@@ -55,13 +71,19 @@ export function InstagramSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative aspect-square overflow-hidden rounded-2xl border border-darkBorder bg-gradient-to-br from-brandBlue/10 via-darkCard to-brandOrange/5 transition-all duration-300 hover:scale-[1.02] hover:border-brandOrange/20"
+              className="group relative aspect-square overflow-hidden rounded-2xl border border-darkBorder transition-all duration-300 hover:scale-[1.02] hover:border-brandOrange/20"
             >
-              <div className="flex h-full items-center justify-center">
-                <svg className="h-8 w-8 text-textMuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <img
+                src={post.img}
+                alt={post.label}
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-darkBg/60 to-transparent" />
+              <div className="absolute top-3 right-3 rounded-full bg-white/10 backdrop-blur-md p-2">
+                <svg className="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-darkBg/80 to-transparent p-4">
-                <p className="text-sm font-medium text-textPrimary">{post.label}</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <p className="text-sm font-medium text-white">{post.label}</p>
               </div>
             </motion.div>
           ))}

@@ -1,17 +1,17 @@
 "use client";
 import { FOOTER_LINKS, FOOTER_CONTACTS, INSTAGRAM_LINK, WHATSAPP_LINK } from "@/lib/constants";
+import { useTheme } from "@/lib/ThemeProvider";
 
 export function Footer() {
+  const { theme } = useTheme();
+  const logoSrc = theme === "dark" ? "/logos/logotype-white.svg" : "/logos/logotype-blue.svg";
+
   return (
     <footer className="border-t border-darkBorder bg-darkCard/50">
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <img
-              src="/logos/logotype-white.svg"
-              alt="Institute for Entrepreneurship"
-              className="h-8 w-auto mb-4"
-            />
+            <img src={logoSrc} alt="Institute for Entrepreneurship" className="h-8 w-auto mb-4" />
             <p className="text-sm text-textSecondary leading-relaxed max-w-xs">
               Institute for Entrepreneurship AlmaU — сообщество предпринимателей, студентов и экспертов.
             </p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/lib/ThemeProvider";
 import { FloatingWhatsAppButton } from "@/components/FloatingWhatsAppButton";
 
 const siteTitle = "Институт предпринимательства AlmaU — бакалавриат и магистратура для будущих предпринимателей";
@@ -46,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="antialiased">
+    <html lang="ru" className="antialiased" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -55,16 +56,18 @@ export default function RootLayout({
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
       <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brandOrange focus:text-white focus:rounded-lg"
-        >
-          Перейти к содержимому
-        </a>
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <FloatingWhatsAppButton />
+        <ThemeProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brandOrange focus:text-white focus:rounded-lg"
+          >
+            Перейти к содержимому
+          </a>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <FloatingWhatsAppButton />
+        </ThemeProvider>
       </body>
     </html>
   );

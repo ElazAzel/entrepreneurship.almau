@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_ITEMS, WHATSAPP_LINK } from "@/lib/constants";
+import { useTheme } from "@/lib/ThemeProvider";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -14,13 +16,13 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const logoSrc = theme === "dark" ? "/logos/emblem-white.svg" : "/logos/emblem-orange.svg";
+
   return (
     <>
       <header
         className={`fixed top-0 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 hidden md:block ${
-          scrolled
-            ? "top-3"
-            : "top-5"
+          scrolled ? "top-3" : "top-5"
         }`}
       >
         <div
@@ -32,11 +34,7 @@ export function Header() {
         >
           <div className="flex items-center gap-1 px-2">
             <a href="#" className="px-3 py-2">
-              <img
-                src="/logos/emblem-white.svg"
-                alt="Institute for Entrepreneurship"
-                className="h-7 w-auto"
-              />
+              <img src={logoSrc} alt="Institute for Entrepreneurship" className="h-7 w-auto" />
             </a>
             <nav className="flex items-center gap-1">
               {NAV_ITEMS.map((item) => (
@@ -49,11 +47,18 @@ export function Header() {
                 </a>
               ))}
             </nav>
+            <button
+              onClick={toggle}
+              className="ml-2 rounded-full p-2 text-textMuted hover:text-textPrimary hover:bg-white/5 transition-colors"
+              aria-label={theme === "dark" ? "Светлая тема" : "Тёмная тема"}
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 rounded-full bg-brandOrange px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-brandOrange/90"
+              className="ml-1 rounded-full bg-brandOrange px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-brandOrange/90"
             >
               Поступить
             </a>
@@ -64,7 +69,7 @@ export function Header() {
       <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden">
         <nav className="flex items-center justify-around px-2 py-2">
           <a href="#" className="flex flex-col items-center gap-0.5 px-2 py-1">
-            <img src="/logos/emblem-white.svg" alt="Home" className="h-5 w-auto" />
+            <img src={logoSrc} alt="Home" className="h-5 w-auto" />
           </a>
           {NAV_ITEMS.slice(0, 4).map((item) => (
             <a
@@ -102,6 +107,13 @@ export function Header() {
               <X className="h-7 w-7" />
             </button>
             <nav className="flex flex-col items-center gap-6">
+              <button
+                onClick={toggle}
+                className="flex items-center gap-2 text-sm text-textSecondary hover:text-textPrimary transition-colors"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                {theme === "dark" ? "Светлая тема" : "Тёмная тема"}
+              </button>
               {NAV_ITEMS.map((item, i) => (
                 <motion.a
                   key={item.href}

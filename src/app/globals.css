@@ -56,6 +56,15 @@
   --font-display: "Cera Pro", system-ui, sans-serif;
 }
 
+.light {
+  --color-darkBg: #f8f9fa;
+  --color-darkCard: #ffffff;
+  --color-darkBorder: #e2e8f0;
+  --color-textPrimary: #1e293b;
+  --color-textSecondary: #475569;
+  --color-textMuted: #94a3b8;
+}
+
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -85,11 +94,6 @@
   50% { opacity: 0.7; transform: scale(1.05); }
 }
 
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes scroll-cue {
   0%, 100% { opacity: 0; transform: translateY(0); }
   50% { opacity: 1; transform: translateY(8px); }
@@ -117,4 +121,8 @@ html {
 
 body {
   overflow-x: hidden;
+}
+
+.light .invert-for-theme {
+  filter: none;
 }
