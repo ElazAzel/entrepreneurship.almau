@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Plus } from "lucide-react";
 import { FAQ_ITEMS } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
@@ -60,7 +61,21 @@ export function FAQ() {
 
   return (
     <section id="faq" className="relative bg-darkBg py-24 md:py-32 overflow-hidden" itemScope itemType="https://schema.org/FAQPage">
-      <div className="mx-auto max-w-4xl px-4 md:px-6">
+      <div className="absolute inset-0 pointer-events-none motion-reduce:hidden">
+        <div className="absolute top-20 right-0 w-72 h-72 rounded-full bg-brandOrange/5 blur-[120px]" />
+        <div className="absolute bottom-20 left-0 w-80 h-80 rounded-full bg-brandBlue/5 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-video opacity-[0.03] rounded-3xl overflow-hidden">
+          <Image
+            src="/images/photoshoot/2S2A2849.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="80vw"
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-4xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, y: 10 }}

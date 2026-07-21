@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 import { STUDENT_FACTS, STUDENT_NUMBERS } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
 
@@ -38,7 +39,19 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 export function Students() {
   return (
     <section id="students" className="relative bg-darkBg py-24 md:py-32 overflow-hidden">
-      <div className="absolute top-0 right-0 h-[300px] w-[300px] rounded-full bg-brandBlue/10 blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute inset-0 pointer-events-none motion-reduce:hidden">
+        <div className="absolute top-0 right-0 h-[300px] w-[300px] rounded-full bg-brandBlue/10 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-brandOrange/5 blur-[140px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-3xl aspect-[16/9] opacity-[0.04] rounded-3xl overflow-hidden">
+          <Image
+            src="/images/photoshoot/2S2A2892.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="80vw"
+          />
+        </div>
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
@@ -61,6 +74,37 @@ export function Students() {
           >
             Студенты и выпускники
           </motion.h2>
+        </div>
+
+        <div className="mt-10 flex justify-center gap-3">
+          {["/images/photoshoot/2S2A2817.jpg", "/images/photoshoot/2S2A3001.jpg", "/images/photoshoot/2S2A3028.jpg", "/images/photoshoot/2S2A3060.jpg", "/images/photoshoot/2S2A3141.jpg"].map((src, i) => (
+            <motion.div
+              key={src}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full overflow-hidden border-2 border-darkCard -mr-2 last:mr-0"
+              style={{ zIndex: 5 - i }}
+            >
+              <Image
+                src={src}
+                alt="Студент AlmaU"
+                fill
+                className="object-cover"
+                sizes="60px"
+              />
+            </motion.div>
+          ))}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center justify-center w-[50px] h-[50px] md:w-[60px] md:h-[60px] rounded-full bg-brandOrange/10 border-2 border-brandOrange/30 text-xs font-bold text-brandOrange"
+          >
+            +500
+          </motion.div>
         </div>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
