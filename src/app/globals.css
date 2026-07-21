@@ -94,6 +94,16 @@
   50% { opacity: 1; transform: scale(1.05); }
 }
 
+@keyframes preloaderHide {
+  0%, 50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.95); }
+}
+
+.preloader {
+  animation: preloaderHide 1s ease 0.1s forwards;
+  pointer-events: none;
+}
+
 html {
   scroll-behavior: smooth;
 }

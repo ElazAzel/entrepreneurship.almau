@@ -6,16 +6,16 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsAppButton } from "@/components/FloatingWhatsAppButton";
 import { CustomCursor } from "@/components/CustomCursor";
 
-const siteTitle = "Институт предпринимательства AlmaU — бакалавриат и магистратура для будущих предпринимателей";
+const siteTitle = "Институт предпринимательства AlmaU — университет бизнеса в Алматы, бакалавриат и магистратура";
 const siteDescription =
-  "Программы International Business, Digital Commerce, Business Administration in Entrepreneurship и Управление в креативных индустриях. Практическое обучение, стартапы, бизнес-кейсы и предпринимательское сообщество AlmaU.";
+  "AlmaU — университет бизнеса Алматы с программами International Business, Digital Commerce, BAE и магистратурой в креативных индустриях. Поступление с ЕНТ математика+география. Государственные гранты, практика, стартапы.";
 const siteUrl = "https://entrepreneurship-almau.vercel.app";
 
 export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
   keywords:
-    "AlmaU, Институт предпринимательства, предпринимательство Алматы, бакалавриат AlmaU, магистратура AlmaU, International Business, Digital Commerce, Business Administration in Entrepreneurship, креативные индустрии, стартапы, бизнес образование Казахстан",
+    "AlmaU, Институт предпринимательства, предпринимательство Алматы, университет бизнеса Алматы, университет международного бизнеса Алматы, бакалавриат AlmaU, магистратура AlmaU, International Business, Digital Commerce, BAE, креативные индустрии, стартапы, бизнес образование Казахстан, поступление в университет Алматы, гранты AlmaU, стоимость обучения AlmaU, ЕНТ математика география",
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   icons: {

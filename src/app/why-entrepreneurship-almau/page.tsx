@@ -9,12 +9,12 @@ const siteUrl = "https://entrepreneurship-almau.vercel.app";
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: "Почему Институт предпринимательства AlmaU? | Преимущества и отличия",
-  description: "Узнайте, чем Институт предпринимательства AlmaU отличается от других вузов: практическое обучение, стартап-экосистема, менторы-предприниматели, стажировки и карьерные возможности в Алматы.",
+  title: "Почему Институт предпринимательства AlmaU? | Университет бизнеса в Алматы",
+  description: "AlmaU — университет бизнеса в Алматы и единственный в Казахстане вуз с выделенным Институтом предпринимательства. Узнайте, чем мы отличаемся: практика, стартапы, менторы-предприниматели, стажировки и международные программы.",
   alternates: { canonical: "/why-entrepreneurship-almau" },
   openGraph: {
-    title: "Почему Институт предпринимательства AlmaU?",
-    description: "Практическое обучение, предпринимательское сообщество, международные стажировки и запуск стартапов — преимущества обучения в AlmaU.",
+    title: "Университет бизнеса и предпринимательства — почему AlmaU?",
+    description: "Единственный университет бизнеса Алматы с выделенным Институтом предпринимательства. International Business, Digital Commerce, BAE — практика, стартапы, стажировки.",
     url: `${siteUrl}/why-entrepreneurship-almau`,
   },
 };
@@ -96,7 +96,7 @@ export default function WhyAlmaUPage() {
                 Почему Институт предпринимательства AlmaU?
               </h1>
               <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-textSecondary leading-relaxed break-words">
-                Единственный в Казахстане институт, полностью посвящённый предпринимательству. Практическое обучение, реальные проекты, сообщество предпринимателей и карьера с первого курса.
+                AlmaU — университет бизнеса в Алматы и единственный вуз Казахстана с выделенным Институтом предпринимательства. Программы International Business, Digital Commerce и BAE — это практическое обучение, запуск стартапов, сообщество предпринимателей и карьера с первого курса.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"

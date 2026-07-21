@@ -40,7 +40,7 @@ export function CustomCursor() {
       document.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("mouseenter", onEnter);
     };
-  }, []);
+  }, [visible]);
 
   if (!visible) return null;
 

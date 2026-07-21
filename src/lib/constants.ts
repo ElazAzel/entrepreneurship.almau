@@ -328,6 +328,8 @@ export const FOOTER_LINKS = [
   { label: "ЕНТ математика+география", href: "/ent/matematika-geografiya" },
   { label: "Сравнение программ", href: "/compare/management-vs-entrepreneurship" },
   { label: "Почему AlmaU", href: "/why-entrepreneurship-almau" },
+  { label: "Проходные баллы", href: "/ent/prohodnye-bally" },
+  { label: "Топ университетов Алматы", href: "/compare/top-universities-almaty" },
 ] as const;
 
 export const FOOTER_CONTACTS = {

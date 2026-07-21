@@ -9,12 +9,12 @@ const siteUrl = "https://entrepreneurship-almau.vercel.app";
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: "Гранты и стоимость обучения в AlmaU | Институт предпринимательства",
-  description: "Гранты на бизнес-администрирование и предпринимательство, стоимость обучения International Business и Digital Commerce, скидки при раннем поступлении, образовательные кредиты и внутренние гранты AlmaU.",
+  title: "Гранты и стоимость обучения в AlmaU | Цены, скидки, кредиты",
+  description: "Университет Алматы стоимость обучения — гранты и цены на программы International Business, Digital Commerce, BAE. Государственные и внутренние гранты, скидки при раннем поступлении, образовательные кредиты и рассрочка в AlmaU.",
   alternates: { canonical: "/admission/grants-and-tuition" },
   openGraph: {
-    title: "Гранты и стоимость обучения в AlmaU",
-    description: "Государственные и внутренние гранты, скидки, рассрочка и стоимость программ предпринимательства в Алматы.",
+    title: "Гранты и стоимость обучения AlmaU — цены, скидки, гранты 2026",
+    description: "Сколько стоит обучение в университете Алматы? Гранты, стоимость, скидки при раннем поступлении, образовательные кредиты и рассрочка в AlmaU.",
     url: `${siteUrl}/admission/grants-and-tuition`,
   },
 };
@@ -114,7 +114,7 @@ export default function GrantsTuitionPage() {
                 Гранты и стоимость обучения в AlmaU
               </h1>
               <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base text-textSecondary leading-relaxed break-words">
-                AlmaU предлагает разнообразные финансовые возможности: государственные гранты, собственные стипендиальные программы, скидки при раннем поступлении и образовательные кредиты.
+                Стоимость обучения в университете Алматы и условия получения грантов — главные вопросы абитуриентов. AlmaU предлагает: государственные и внутренние гранты, скидки при раннем поступлении, образовательные кредиты и рассрочку. Узнайте цены на программы International Business, Digital Commerce, BAE.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
@@ -160,12 +160,12 @@ export default function GrantsTuitionPage() {
       <section className="py-20 md:py-28 bg-darkBg">
         <div className="mx-auto max-w-4xl px-4">
           <div className="flex flex-col items-center text-center">
-            <SectionBadge>Тарифы</SectionBadge>
+            <SectionBadge>Цены</SectionBadge>
             <h2 className="mt-4 font-display font-semibold text-textPrimary leading-tight" style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}>
-              Стоимость обучения
+              Стоимость обучения в AlmaU
             </h2>
             <p className="mt-4 max-w-2xl text-sm text-textSecondary leading-relaxed break-words">
-              Стоимость обучения зависит от выбранной программы и формы обучения. Актуальные цены уточняйте в приёмной комиссии. Для студентов предусмотрена гибкая система рассрочки и скидок.
+              Цены на обучение в AlmaU зависят от выбранной программы и формы. Стоимость университета Алматы для программ International Business, Digital Commerce и BAE уточняйте в приёмной комиссии. Для студентов предусмотрена гибкая система рассрочки, скидки при раннем поступлении и образовательные кредиты.
             </p>
             <div className="mt-8">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
