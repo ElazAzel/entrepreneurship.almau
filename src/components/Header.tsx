@@ -103,7 +103,7 @@ export function Header() {
         </div>
       </header>
 
-      <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden">
+      <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden" style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}>
         <nav className="flex items-center justify-around px-2 py-2">
           <a href={currentLocale === "ru" ? "/" : `/${currentLocale}`} className="flex flex-col items-center gap-0.5 px-2 py-1">
             <Image
@@ -114,7 +114,7 @@ export function Header() {
               className="h-5 w-auto"
             />
           </a>
-          {NAV_ITEMS.slice(0, 4).map((item) => (
+          {NAV_ITEMS.slice(0, 3).map((item) => (
             <a
               key={item.href}
               href={item.href}

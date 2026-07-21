@@ -39,7 +39,7 @@ export function FAQSection({ items, title, id }: { items: { question: string; an
   const [openId, setOpenId] = useState<number | null>(0);
 
   return (
-    <section id={id} className="relative py-20 md:py-28" itemScope itemType="https://schema.org/FAQPage">
+    <section id={id} className="relative py-20 md:py-28">
       <div className="mx-auto max-w-4xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center">
           <h2 className="font-display font-semibold text-textPrimary leading-tight" style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}>
@@ -48,12 +48,7 @@ export function FAQSection({ items, title, id }: { items: { question: string; an
         </div>
         <div className="mt-10 space-y-3">
           {items.map((item, i) => (
-            <div key={i} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-              <FAQItem item={item} isOpen={openId === i} onToggle={() => setOpenId(openId === i ? null : i)} index={i} />
-              <div itemProp="acceptedAnswer" itemScope itemType="https://schema.org/Answer" className="hidden">
-                <span itemProp="text">{item.answer}</span>
-              </div>
-            </div>
+            <FAQItem key={i} item={item} isOpen={openId === i} onToggle={() => setOpenId(openId === i ? null : i)} index={i} />
           ))}
         </div>
       </div>

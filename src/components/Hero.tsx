@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { WHATSAPP_LINK, HERO_BADGES, ARTICLE_LINK } from "@/lib/constants";
+import { WHATSAPP_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
 const STUDENT_FACES = [
@@ -13,74 +12,12 @@ const STUDENT_FACES = [
   { src: "/images/photoshoot/2S2A2654.jpg", alt: "Студент магистратуры креативных индустрий" },
 ];
 
-function Particles() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationId: number;
-    const particles: { x: number; y: number; speed: number; size: number; opacity: number }[] = [];
-
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    for (let i = 0; i < 20; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        speed: 0.1 + Math.random() * 0.2,
-        size: 1 + Math.random() * 1.5,
-        opacity: 0.1 + Math.random() * 0.25,
-      });
-    }
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const p of particles) {
-        p.y -= p.speed;
-        if (p.y < -10) {
-          p.y = canvas.height + 10;
-          p.x = Math.random() * canvas.width;
-        }
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
-        ctx.fill();
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 pointer-events-none motion-reduce:hidden"
-      aria-hidden="true"
-    />
-  );
-}
-
 export function Hero() {
   const { theme } = useTheme();
   const logoSrc = theme === "dark" ? "/logos/logotype-white.svg" : "/logos/logotype-blue.svg";
 
   return (
     <section className="relative flex items-center bg-darkBg overflow-hidden min-h-[600px] md:min-h-dvh pt-16 pb-0 md:pt-0 md:pb-0">
-      <Particles />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:py-0">
         <div className="rounded-2xl md:rounded-3xl border border-darkBorder bg-darkCard/80 backdrop-blur-sm overflow-hidden">
@@ -155,35 +92,6 @@ export function Hero() {
                     Смотреть программы
                   </a>
                 </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="mt-4 md:mt-5 flex flex-wrap justify-center md:justify-start gap-1.5 md:gap-2"
-                >
-                  {HERO_BADGES.map((badge) => (
-                    <span
-                      key={badge}
-                      className="rounded-full border border-darkBorder bg-darkBg/50 px-2.5 py-0.5 md:px-3 md:py-1 text-[10px] md:text-[11px] font-medium text-textMuted"
-                    >
-                      {badge}
-                    </span>
-                  ))}
-                </motion.div>
-
-                <motion.a
-                  href={ARTICLE_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="mt-4 inline-flex items-center gap-1.5 text-[11px] text-textMuted hover:text-brandOrange transition-colors"
-                >
-                  <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                  Читать статью на ER10.kz
-                </motion.a>
               </div>
             </div>
             <div className="md:col-span-2 relative min-h-[220px] md:min-h-[400px] overflow-hidden">
