@@ -3,8 +3,19 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINK, INSTAGRAM_LINK } from "@/lib/constants";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPath } from "@/lib/i18n";
+
+const labels = {
+  ru: { title: "Твоё предпринимательское будущее начинается здесь", subtitle: "Выбери программу, задай вопрос и узнай, как поступить в Институт предпринимательства AlmaU.", whatsapp: "Написать в WhatsApp", instagram: "Смотреть Instagram" },
+  kk: { title: "Сіздің кәсіпкерлік болашағыңыз осы жерден басталады", subtitle: "Бағдарламаны таңдаңыз, сұрақ қойыңыз және AlmaU Кәсіпкерлік Институтына қалай түсуге болатынын біліңіз.", whatsapp: "WhatsApp-та жазу", instagram: "Instagram-ды көру" },
+  en: { title: "Your entrepreneurial future starts here", subtitle: "Choose a program, ask a question, and learn how to apply to the Institute for Entrepreneurship at AlmaU.", whatsapp: "Write to WhatsApp", instagram: "View Instagram" },
+};
 
 export function FinalCTA() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPath(pathname);
+  const t = labels[locale];
   return (
     <section className="relative py-24 md:py-32 bg-darkBg overflow-hidden">
       <div className="absolute inset-0 pointer-events-none motion-reduce:hidden">
@@ -47,7 +58,7 @@ export function FinalCTA() {
               className="font-display font-semibold text-textPrimary leading-tight"
               style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
             >
-              Твоё предпринимательское будущее начинается здесь
+              {t.title}
             </motion.h2>
 
             <motion.p
@@ -57,7 +68,7 @@ export function FinalCTA() {
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="mx-auto mt-4 max-w-xl text-sm text-textSecondary leading-relaxed break-words"
             >
-              Выбери программу, задай вопрос и узнай, как поступить в Институт предпринимательства AlmaU.
+              {t.subtitle}
             </motion.p>
 
             <motion.div
@@ -74,7 +85,7 @@ export function FinalCTA() {
                 className="inline-flex items-center gap-2 rounded-full bg-brandOrange px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_0_30px_rgba(235,96,27,0.35)]"
               >
                 <MessageCircle className="h-5 w-5" />
-                Написать в WhatsApp
+                {t.whatsapp}
               </a>
               <a
                 href={INSTAGRAM_LINK}
@@ -83,7 +94,7 @@ export function FinalCTA() {
                 className="inline-flex items-center gap-2 rounded-full border border-darkBorder px-7 py-3 text-sm font-semibold text-textSecondary transition-all duration-300 hover:bg-darkCard hover:text-textPrimary"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                Смотреть Instagram
+                {t.instagram}
               </a>
             </motion.div>
           </div>

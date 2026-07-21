@@ -2,8 +2,19 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINK, INSTAGRAM_LINK } from "@/lib/constants";
+import { usePathname } from "next/navigation";
+import { getLocaleFromPath } from "@/lib/i18n";
+
+const btnLabels = {
+  ru: { whatsapp: "Написать в WhatsApp", instagram: "Смотреть Instagram" },
+  kk: { whatsapp: "WhatsApp-та жазу", instagram: "Instagram-ды көру" },
+  en: { whatsapp: "Write to WhatsApp", instagram: "View Instagram" },
+};
 
 export function CTASection({ title, subtitle }: { title?: string; subtitle?: string }) {
+  const pathname = usePathname();
+  const locale = getLocaleFromPath(pathname);
+  const btn = btnLabels[locale];
   return (
     <section className="relative py-20 md:py-28 bg-darkBg overflow-hidden border-t border-darkBorder">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,58,137,0.15),transparent_60%)] pointer-events-none" />
@@ -40,13 +51,13 @@ export function CTASection({ title, subtitle }: { title?: string; subtitle?: str
                 className="inline-flex items-center gap-2 rounded-full bg-brandOrange px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
               >
                 <MessageCircle className="h-5 w-5" />
-                Написать в WhatsApp
+                {btn.whatsapp}
               </a>
               <a href={INSTAGRAM_LINK} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-darkBorder px-7 py-3 text-sm font-semibold text-textSecondary transition-all duration-300 hover:bg-darkCard hover:text-textPrimary"
               >
                 <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                Смотреть Instagram
+                {btn.instagram}
               </a>
             </motion.div>
           </div>

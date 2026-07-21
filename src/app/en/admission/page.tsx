@@ -2,41 +2,67 @@ import { SectionBadge } from "@/components/SectionBadge";
 import { FAQSection } from "@/components/FAQSection";
 import { CTASection } from "@/components/CTASection";
 import Image from "next/image";
-import { ADMISSION_FAQ } from "@/lib/pages";
 import { WHATSAPP_LINK, FOOTER_CONTACTS } from "@/lib/constants";
 
 export const revalidate = 604800;
 
 export const metadata = {
-  title: "Поступление в AlmaU: документы, сроки, проходные баллы | Алматы",
+  title: "Admission to AlmaU: Documents, Deadlines, Requirements | Almaty",
   description:
-    "Поступление в университет Алматы — AlmaU: документы для подачи, сроки приёмной кампании 2026, проходные баллы ЕНТ, этапы зачисления и контакты. Бакалавриат и магистратура.",
+    "Admission to the Institute for Entrepreneurship at AlmaU: required documents, 2026 deadlines, UNT scores, enrollment stages, and contacts. Bachelor's and Master's programs.",
   alternates: {
-    canonical: "/admission",
+    canonical: "/en/admission",
     languages: { ru: "/admission", kk: "/kk/admission", en: "/en/admission" },
   },
   openGraph: {
-    title: "Поступление в AlmaU 2026 — документы, сроки, баллы",
+    title: "Admission to AlmaU 2026 — Documents, Deadlines, Scores",
     description:
-      "Как поступить в AlmaU: документы, сроки, проходные баллы ЕНТ математика+география, гранты и контакты приёмной комиссии.",
+      "How to apply to AlmaU: documents, deadlines, UNT scores Math+Geography, grants, and admissions office contacts.",
   },
 };
 
 const steps = [
-  { number: "01", title: "Подготовка документов" },
-  { number: "02", title: "Подача заявки" },
-  { number: "03", title: "Собеседование" },
-  { number: "04", title: "Зачисление" },
+  { number: "01", title: "Document Preparation" },
+  { number: "02", title: "Submit Application" },
+  { number: "03", title: "Interview" },
+  { number: "04", title: "Enrollment" },
 ];
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Главная", item: "https://entrepreneurship-almau.vercel.app" },
-    { "@type": "ListItem", position: 2, name: "Поступление", item: "https://entrepreneurship-almau.vercel.app/admission" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://entrepreneurship-almau.vercel.app" },
+    { "@type": "ListItem", position: 2, name: "Admission", item: "https://entrepreneurship-almau.vercel.app/en/admission" },
   ],
 };
+
+const admissionFaq = [
+  {
+    question: "What documents are required to apply to AlmaU?",
+    answer: "You need: application form, ID card, high school diploma (or college diploma), UNT certificate, 4 photos 3×4, medical certificate 075/U. For English-taught programs — IELTS/TOEFL certificate.",
+  },
+  {
+    question: "What are the application deadlines for 2026?",
+    answer: "Document submission starts in June and continues until the end of August. Exact dates are set by the AlmaU admissions committee. We recommend applying early to qualify for early admission discounts.",
+  },
+  {
+    question: "Is there an interview as part of the admissions process?",
+    answer: "Yes, after submitting your documents, you will have an interview with institute representatives to assess your motivation, entrepreneurial potential, and fit with the program.",
+  },
+  {
+    question: "Are there scholarships or grants available?",
+    answer: "Yes, AlmaU offers state grants, educational loans, early admission discounts, and internal university grants for talented applicants. Contact us for details.",
+  },
+  {
+    question: "What language requirements are there for International Business?",
+    answer: "For International Business, instruction is entirely in English. You need an IELTS score of 5.5+ or equivalent TOEFL. Other programs are taught in Russian or a mix of Russian and English.",
+  },
+  {
+    question: "What entrance exams are required?",
+    answer: "You need the UNT (Unified National Test) with profile subjects Math + Geography for all bachelor's programs. For International Business, an English proficiency certificate is also required.",
+  },
+];
 
 export default function AdmissionPage() {
   return (
@@ -56,10 +82,10 @@ export default function AdmissionPage() {
                     className="font-display font-bold text-textPrimary leading-tight break-words"
                     style={{ fontSize: "clamp(24px, 4.5vw, 52px)", letterSpacing: "-0.02em" }}
                   >
-                    Поступление в Институт предпринимательства AlmaU
+                    Admission to the Institute for Entrepreneurship AlmaU
                   </h1>
                   <p className="mt-4 max-w-xl text-sm md:text-base text-textSecondary leading-relaxed break-words">
-                    Подготовь документы, пройди собеседование и стань частью предпринимательского сообщества. Мы поможем на каждом этапе поступления.
+                    Prepare your documents, attend an interview, and become part of an entrepreneurial community. We are here to help you through every step of the application process.
                   </p>
                   <div className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2 md:gap-3 w-full">
                     <a
@@ -68,7 +94,7 @@ export default function AdmissionPage() {
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-brandOrange px-6 py-2.5 md:px-7 md:py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
                     >
-                      Связаться с приёмной комиссией
+                      Chat with admissions committee
                     </a>
                   </div>
                 </div>
@@ -76,7 +102,7 @@ export default function AdmissionPage() {
               <div className="hidden md:block md:col-span-2 relative min-h-[320px] overflow-hidden">
                 <Image
                   src="/images/photoshoot/2S2A3060.jpg"
-                  alt="Студенты Института предпринимательства AlmaU"
+                  alt="Students of the Institute for Entrepreneurship at AlmaU"
                   fill
                   className="object-cover"
                   sizes="40vw"
@@ -92,27 +118,27 @@ export default function AdmissionPage() {
       <section className="relative py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <div className="flex flex-col items-center text-center">
-            <SectionBadge>Документы</SectionBadge>
+            <SectionBadge>Documents</SectionBadge>
             <h2
               className="mt-4 font-display font-semibold text-textPrimary leading-tight"
               style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
             >
-              Документы для поступления
+              Documents for Admission
             </h2>
             <p className="mt-3 max-w-lg text-sm text-textSecondary leading-relaxed break-words">
-              Для поступления необходимо подготовить следующий пакет документов
+              Prepare the following set of documents for your application
             </p>
           </div>
           <div className="mt-10 mx-auto max-w-2xl">
             <ul className="space-y-3">
               {[
-                "Заявление",
-                "Удостоверение личности",
-                "Аттестат о среднем образовании (или диплом колледжа)",
-                "Сертификат ЕНТ",
-                "4 фотографии 3×4",
-                "Медицинская справка 075/У",
-                "Сертификат IELTS/TOEFL (для International Business)",
+                "Application form",
+                "ID card",
+                "High school diploma (or college diploma)",
+                "UNT certificate",
+                "4 photos 3×4",
+                "Medical certificate 075/U",
+                "IELTS/TOEFL certificate (for International Business)",
               ].map((item, idx) => (
                 <li
                   key={idx}
@@ -132,15 +158,15 @@ export default function AdmissionPage() {
       <section className="relative py-20 md:py-28 bg-darkBg/50 border-t border-darkBorder">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <div className="flex flex-col items-center text-center">
-            <SectionBadge>Этапы</SectionBadge>
+            <SectionBadge>Steps</SectionBadge>
             <h2
               className="mt-4 font-display font-semibold text-textPrimary leading-tight"
               style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
             >
-              Сроки и этапы
+              Timeline and Stages
             </h2>
             <p className="mt-3 max-w-lg text-sm text-textSecondary leading-relaxed break-words">
-              Поступление проходит в несколько простых шагов
+              Admission takes place in a few simple steps
             </p>
           </div>
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -160,12 +186,12 @@ export default function AdmissionPage() {
       <section className="relative py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-4 md:px-6">
           <div className="flex flex-col items-center text-center">
-            <SectionBadge>Контакты</SectionBadge>
+            <SectionBadge>Contacts</SectionBadge>
             <h2
               className="mt-4 font-display font-semibold text-textPrimary leading-tight"
               style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
             >
-              Контакты приёмной комиссии
+              Admissions Office Contacts
             </h2>
           </div>
           <div className="mt-10 mx-auto max-w-xl">
@@ -177,7 +203,7 @@ export default function AdmissionPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-textMuted uppercase tracking-wider">Телефон</p>
+                  <p className="text-xs text-textMuted uppercase tracking-wider">Phone</p>
                   <a href={`tel:${FOOTER_CONTACTS.phone.replace(/\s/g, "")}`} className="mt-1 text-sm md:text-base text-textPrimary hover:text-brandOrange transition-colors break-words">
                     {FOOTER_CONTACTS.phone}
                   </a>
@@ -204,7 +230,7 @@ export default function AdmissionPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-textMuted uppercase tracking-wider">Адрес</p>
+                  <p className="text-xs text-textMuted uppercase tracking-wider">Address</p>
                   <a href={FOOTER_CONTACTS.locationUrl} target="_blank" rel="noopener noreferrer" className="mt-1 text-sm md:text-base text-textPrimary hover:text-brandOrange transition-colors break-words">
                     {FOOTER_CONTACTS.address}
                   </a>
@@ -220,7 +246,7 @@ export default function AdmissionPage() {
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
-                  Написать в WhatsApp
+                  Write to WhatsApp
                 </a>
               </div>
             </div>
@@ -228,9 +254,12 @@ export default function AdmissionPage() {
         </div>
       </section>
 
-      <FAQSection title="Часто задаваемые вопросы о поступлении" items={ADMISSION_FAQ} id="faq" />
+      <FAQSection title="Frequently Asked Questions About Admission" items={admissionFaq} id="faq" />
 
-      <CTASection />
+      <CTASection
+        title="Ready to apply?"
+        subtitle="Contact us on WhatsApp and we will walk you through the application process."
+      />
     </>
   );
 }

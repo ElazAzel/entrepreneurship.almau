@@ -21,7 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: prog.title + " | AlmaU Институт предпринимательства",
     description: prog.description,
-    alternates: { canonical: `/programs/${slug}` },
+    alternates: {
+      canonical: `/programs/${slug}`,
+      languages: { ru: `/programs/${slug}`, kk: `/kk/programs/${slug}`, en: `/en/programs/${slug}` },
+    },
     openGraph: { title: prog.title, description: prog.description, url: `${siteUrl}/programs/${slug}` },
   };
 }

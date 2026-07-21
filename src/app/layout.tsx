@@ -17,7 +17,15 @@ export const metadata: Metadata = {
   keywords:
     "AlmaU, Институт предпринимательства, предпринимательство Алматы, университет бизнеса Алматы, университет международного бизнеса Алматы, бакалавриат AlmaU, магистратура AlmaU, International Business, Digital Commerce, BAE, креативные индустрии, стартапы, бизнес образование Казахстан, поступление в университет Алматы, гранты AlmaU, стоимость обучения AlmaU, ЕНТ математика география",
   metadataBase: new URL(siteUrl),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "x-default": "/",
+      ru: "/",
+      kk: "/kk",
+      en: "/en",
+    },
+  },
   icons: {
     icon: "/favicon.svg",
     apple: "/favicon.svg",
@@ -103,6 +111,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <meta name="yandex-verification" content="67b390b0a3e95099" />
+        <meta name="google-site-verification" content="google335b0ce8043e44c1.html" />
         <meta name="theme-color" content="#0f1117" media="(prefers-color-scheme: dark)" />
         <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)" />
         <script dangerouslySetInnerHTML={{
@@ -110,6 +120,12 @@ export default function RootLayout({
         }} />
         <script dangerouslySetInnerHTML={{
           __html: `(function(){var m=document.querySelector("meta[name=theme-color]");if(m){var u=function(){var t;try{t=localStorage.getItem("theme")}catch(e){}m.content=t==="light"||(!t&&matchMedia("(prefers-color-scheme:light)").matches)?"#f5f5f0":"#0f1117"};u();window.addEventListener("theme-change",u)}})()`
+        }} />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=110912482","ym");ym(110912482,"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true})`
+        }} />
+        <noscript dangerouslySetInnerHTML={{
+          __html: `<div><img src="https://mc.yandex.ru/watch/110912482" style="position:absolute;left:-9999px" alt=""/></div>`
         }} />
       </head>
       <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">

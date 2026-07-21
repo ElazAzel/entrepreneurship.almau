@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { NAV_ITEMS, WHATSAPP_LINK, ALMAU_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
+import { LangSwitcher } from "@/components/LangSwitcher";
+import { getLocaleFromPath } from "@/lib/i18n";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,6 +21,9 @@ export function Header() {
   }, []);
 
   const emblemTheme = theme === "dark" ? "white" : "orange";
+  const pathname = usePathname();
+  const currentLocale = getLocaleFromPath(pathname);
+  const ctaLabel = currentLocale === "kk" ? "Түсу" : currentLocale === "en" ? "Apply" : "Поступить";
 
   return (
     <>
@@ -69,13 +75,14 @@ export function Header() {
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
+            <LangSwitcher />
             <a
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="ml-1 rounded-full bg-brandOrange px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
             >
-              Поступить
+              {ctaLabel}
             </a>
           </div>
         </div>
@@ -146,6 +153,9 @@ export function Header() {
               >
                 Основной сайт AlmaU
               </motion.a>
+              <div className="flex items-center gap-4 text-sm">
+                <LangSwitcher />
+              </div>
               {NAV_ITEMS.map((item, i) => (
                 <motion.a
                   key={item.href}
@@ -168,7 +178,7 @@ export function Header() {
                 transition={{ delay: NAV_ITEMS.length * 0.08 }}
                 className="mt-4 rounded-full bg-brandOrange px-8 py-3 text-lg font-semibold text-white"
               >
-                Поступить
+                {ctaLabel}
               </motion.a>
             </nav>
           </motion.div>

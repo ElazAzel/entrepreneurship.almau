@@ -11,7 +11,10 @@ export const revalidate = 604800;
 export const metadata: Metadata = {
   title: "Почему Институт предпринимательства AlmaU? | Университет бизнеса в Алматы",
   description: "AlmaU — университет бизнеса в Алматы с собственным Институтом предпринимательства. Узнайте, чем мы отличаемся: практика, стартапы, менторы-предприниматели, стажировки и международные программы.",
-  alternates: { canonical: "/why-entrepreneurship-almau" },
+  alternates: {
+    canonical: "/why-entrepreneurship-almau",
+    languages: { ru: "/why-entrepreneurship-almau", kk: "/kk/why-entrepreneurship-almau", en: "/en/why-entrepreneurship-almau" },
+  },
   openGraph: {
     title: "Университет бизнеса и предпринимательства — почему AlmaU?",
     description: "Единственный университет бизнеса Алматы с выделенным Институтом предпринимательства. International Business, Digital Commerce, BAE — практика, стартапы, стажировки.",
