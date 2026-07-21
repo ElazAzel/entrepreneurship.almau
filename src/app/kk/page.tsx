@@ -21,9 +21,70 @@ export const metadata: Metadata = {
   },
 };
 
+const siteUrl = "https://entrepreneurship-almau.vercel.app";
+
+const kkProgramsJsonLd = [
+  { title: "International Business", level: "Bachelor's degree", desc: "Ғаламдық бизнес, халықаралық нарықтар, консалтинг" },
+  { title: "Digital Commerce", level: "Bachelor's degree", desc: "E-commerce, маркетплейстер, цифрлық маркетинг" },
+  { title: "BAE", level: "Bachelor's degree", desc: "Кәсіпкерлік, стартаптар, отбасылық бизнес" },
+  { title: "Креативті индустриялар", level: "Master's degree", desc: "Мәдени бизнес, продюсерлік, креативті экономика" },
+];
+
+const kkCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": kkProgramsJsonLd.map((p) => ({
+    "@type": "Course",
+    name: p.title,
+    description: p.desc,
+    educationalLevel: p.level,
+    offers: { "@type": "Offer", category: "Tuition" },
+    provider: { "@type": "EducationalOrganization", name: "Institute for Entrepreneurship AlmaU", sameAs: siteUrl },
+  })),
+};
+
+const kkFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Институт қандай бағдарламаларды ұсынады?",
+      acceptedAnswer: { "@type": "Answer", text: "Біз 3 бакалавриат бағдарламасын — International Business, Digital Commerce, Business Administration in Entrepreneurship (BAE) — және 1 магистратура бағдарламасын ұсынамыз." },
+    },
+    {
+      "@type": "Question",
+      name: "Қалай түсуге болады?",
+      acceptedAnswer: { "@type": "Answer", text: "AlmaU қабылдау комиссиясына өтініш беріңіз, ЕНТ нәтижелерін немесе халықаралық емтихандарды (SAT, IELTS/TOEFL) ұсыныңыз және сұхбаттан өтіңіз." },
+    },
+    {
+      "@type": "Question",
+      name: "Гранттар бар ма?",
+      acceptedAnswer: { "@type": "Answer", text: "Иә. AlmaU мемлекеттік гранттарды, дарынды талапкерлерге арналған ішкі шәкіртақыларды, ерте түсу жеңілдіктерін және білім кредиттерін ұсынады." },
+    },
+    {
+      "@type": "Question",
+      name: "Бағдарламалар қай тілде өтеді?",
+      acceptedAnswer: { "@type": "Answer", text: "International Business толығымен ағылшын тілінде. BAE орыс және ағылшын тілдерінде. Digital Commerce және магистратура орыс тілінде." },
+    },
+    {
+      "@type": "Question",
+      name: "Тағылымдама және мансап мүмкіндіктері қандай?",
+      acceptedAnswer: { "@type": "Answer", text: "Студенттер CMC, ERG, MOST Ventures, KUSTO Group және басқа компанияларда тағылымдамадан өтеді. Түлектер Google, Salem Social Media, BTS Digital секілді компанияларға орналасады." },
+    },
+  ],
+};
+
 export default function KkHome() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(kkCourseJsonLd).replace(/</g, "\\u003c") }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(kkFaqJsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Hero */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 bg-darkBg overflow-hidden">
         <div className="mx-auto max-w-6xl px-4">

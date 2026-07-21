@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { WhyUs } from "@/components/WhyUs";
@@ -11,6 +12,22 @@ import { Partners } from "@/components/Partners";
 import { FinalCTA } from "@/components/FinalCTA";
 import { SectionBadge } from "@/components/SectionBadge";
 import { PROGRAMS, WHATSAPP_LINK } from "@/lib/constants";
+
+export const metadata: Metadata = {
+  title: "Институт предпринимательства AlmaU — университет бизнеса в Алматы",
+  description:
+    "AlmaU — университет бизнеса Алматы с программами International Business, Digital Commerce, BAE, Creative Industries. Поступление с ЕНТ, государственные гранты, предпринимательство, стартапы, международные стажировки.",
+  alternates: {
+    canonical: "/",
+    languages: { ru: "/", kk: "/kk", en: "/en" },
+  },
+  openGraph: {
+    title: "Институт предпринимательства AlmaU",
+    description:
+      "AlmaU — университет бизнеса Алматы: бакалавриат и магистратура с практическим уклоном, стартап-экосистема, карьера с первого курса.",
+    url: "https://entrepreneurship-almau.vercel.app",
+  },
+};
 
 const siteUrl = "https://entrepreneurship-almau.vercel.app";
 

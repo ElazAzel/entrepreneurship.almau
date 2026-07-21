@@ -1,3 +1,22 @@
 User-agent: *
 Allow: /
+Disallow: /_next/
+Disallow: /api/
+
+# AI crawlers — polite crawl rate
+User-agent: GPTBot
+Crawl-delay: 10
+
+User-agent: Google-Extended
+Crawl-delay: 10
+
+User-agent: PerplexityBot
+Crawl-delay: 10
+
+User-agent: Claude-Web
+Crawl-delay: 10
+
+User-agent: CCBot
+Crawl-delay: 10
+
 Sitemap: https://entrepreneurship-almau.vercel.app/sitemap.xml

@@ -71,6 +71,7 @@ const jsonLd = {
         "https://www.tiktok.com/@entrepreneurship.almau",
         "https://www.youtube.com/@entrepreneurshipinnovation2846",
         "https://www.linkedin.com/company/institute-entrepreneurship-innovation/",
+        "https://wa.me/77067066521",
       ],
       offers: [
         { "@type": "Offer", name: "International Business (Бакалавриат)" },
@@ -87,6 +88,8 @@ const jsonLd = {
       description: siteDescription,
       publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: "ru",
+      "speakable": { "@type": "SpeakableSpecification", xpath: ["/html/head/title", "/html/head/meta[@name='description']/@content"] },
+      "potentialAction": { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${siteUrl}/search?q={search_term_string}` }, "query-input": "required name=search_term_string" },
     },
     {
       "@type": "BreadcrumbList",

@@ -21,9 +21,70 @@ export const metadata: Metadata = {
   },
 };
 
+const siteUrl = "https://entrepreneurship-almau.vercel.app";
+
+const enProgramsJsonLd = [
+  { title: "International Business", level: "Bachelor's degree", desc: "Global business, international markets, consulting" },
+  { title: "Digital Commerce", level: "Bachelor's degree", desc: "E-commerce, marketplaces, digital marketing" },
+  { title: "BAE", level: "Bachelor's degree", desc: "Entrepreneurship, startups, family business" },
+  { title: "Creative Industries", level: "Master's degree", desc: "Cultural business, producing, creative economy" },
+];
+
+const enCourseJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": enProgramsJsonLd.map((p) => ({
+    "@type": "Course",
+    name: p.title,
+    description: p.desc,
+    educationalLevel: p.level,
+    offers: { "@type": "Offer", category: "Tuition" },
+    provider: { "@type": "EducationalOrganization", name: "Institute for Entrepreneurship AlmaU", sameAs: siteUrl },
+  })),
+};
+
+const enFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What programs does the Institute offer?",
+      acceptedAnswer: { "@type": "Answer", text: "We offer 3 bachelor programs — International Business, Digital Commerce, Business Administration in Entrepreneurship (BAE) — and 1 master program in Creative Industries Management. All programs are practice-oriented." },
+    },
+    {
+      "@type": "Question",
+      name: "How to apply?",
+      acceptedAnswer: { "@type": "Answer", text: "Submit your application through the AlmaU admissions office, provide your UNT (ENT) scores or international exam results (SAT, IELTS/TOEFL), and pass an interview." },
+    },
+    {
+      "@type": "Question",
+      name: "Are there scholarships?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. AlmaU offers state grants, internal university scholarships for talented applicants, early admission discounts, and educational loans." },
+    },
+    {
+      "@type": "Question",
+      name: "What language are programs taught in?",
+      acceptedAnswer: { "@type": "Answer", text: "International Business is fully in English. BAE is in Russian and English. Digital Commerce and the master program are in Russian." },
+    },
+    {
+      "@type": "Question",
+      name: "What internship and career opportunities exist?",
+      acceptedAnswer: { "@type": "Answer", text: "Students intern at CMC, ERG, MOST Ventures, KUSTO Group, Kazakhyuvelir and others. Graduates receive offers from Google, Salem Social Media, BTS Digital." },
+    },
+  ],
+};
+
 export default function EnHome() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(enCourseJsonLd).replace(/</g, "\\u003c") }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(enFaqJsonLd).replace(/</g, "\\u003c") }}
+      />
       {/* Hero */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 bg-darkBg overflow-hidden">
         <div className="mx-auto max-w-6xl px-4">
