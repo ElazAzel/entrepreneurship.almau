@@ -124,11 +124,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{
           __html: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=110912482","ym");ym(110912482,"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true})`
         }} />
+      </head>
+      <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">
         <noscript dangerouslySetInnerHTML={{
           __html: `<div><img src="https://mc.yandex.ru/watch/110912482" style="position:absolute;left:-9999px" alt=""/></div>`
         }} />
-      </head>
-      <body className="min-h-dvh flex flex-col bg-darkBg text-textPrimary font-sans overflow-x-hidden">
         <div
           id="preloader"
           className="preloader"
