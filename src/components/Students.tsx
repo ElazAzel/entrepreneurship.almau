@@ -8,10 +8,11 @@ import { SectionBadge } from "@/components/SectionBadge";
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(value);
 
   useEffect(() => {
     if (!isInView) return;
+    setCount(0);
     const duration = 1500;
     const steps = 30;
     const increment = value / steps;

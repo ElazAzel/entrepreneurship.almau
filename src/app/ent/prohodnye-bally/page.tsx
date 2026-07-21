@@ -46,7 +46,7 @@ const PROHODNOY_FAQ = [
   },
   {
     question: "Какой проходной балл в AlmaU (Алматы Менеджмент Университет)?",
-    answer: "AlmaU предлагает программы бизнеса, предпринимательства и менеджмента. Рекомендуемый балл для гарантированного поступления: 70–80+. Для получения гранта: от 80 баллов. На платное отделение можно поступить от 50–60 баллов.",
+    answer: "AlmaU предлагает программы бизнеса, предпринимательства и менеджмента. Проходной балл зависит от конкурса в текущем году — уточняйте в приёмной комиссии AlmaU. На платное отделение можно поступить при наличии минимального порога ЕНТ.",
   },
   {
     question: "Какой проходной балл в Нархоз (Университет Нархоз)?",
@@ -74,7 +74,7 @@ const PROHODNOY_FAQ = [
   },
   {
     question: "Какой проходной балл ЕНТ на бизнес-специальности в Алматы?",
-    answer: "На бизнес-специальности (менеджмент, предпринимательство, международный бизнес, маркетинг) проходные баллы: грант от 80+, платное от 50–65. В AlmaU рекомендуемый балл для гарантированного поступления — 70–80+.",
+    answer: "На бизнес-специальности (менеджмент, предпринимательство, международный бизнес, маркетинг) проходные баллы ежегодно определяются конкурсом. Актуальные значения уточняйте в приёмных комиссиях вузов. В AlmaU рекомендуем связаться с приёмной комиссией для получения точной информации.",
   },
   {
     question: "Какой проходной балл ЕНТ на IT-специальности в Алматы?",
@@ -98,7 +98,7 @@ const PROHODNOY_FAQ = [
   },
   {
     question: "Какие проходные баллы в AlmaU на программы Института предпринимательства?",
-    answer: "В Институте предпринимательства AlmaU (International Business, Digital Commerce, BAE) рекомендуемый балл для поступления — 70–80+. Для гранта — от 80 баллов. Программы ориентированы на практику, предпринимательство и запуск стартапов.",
+    answer: "В Институте предпринимательства AlmaU (International Business, Digital Commerce, BAE) проходной балл зависит от конкурса в текущем году. Программы ориентированы на практику, предпринимательство и запуск стартапов.",
   },
 ];
 
@@ -268,23 +268,23 @@ export default function ProhodnyeBallyPage() {
           </div>
           <div className="mt-10 max-w-2xl mx-auto">
             <div className="rounded-2xl border border-darkBorder bg-darkCard p-6 md:p-8">
-              <h3 className="font-display text-base font-semibold text-textPrimary">Рекомендуемые баллы для поступления в AlmaU</h3>
+              <h3 className="font-display text-base font-semibold text-textPrimary">Проходные баллы в AlmaU</h3>
               <div className="mt-4 space-y-3">
                 <div className="flex items-center justify-between rounded-xl border border-darkBorder bg-darkBg p-4">
-                  <span className="text-sm text-textSecondary">Платное отделение</span>
-                  <span className="text-sm font-semibold text-brandOrange">от 50–60 баллов</span>
+                  <span className="text-sm text-textSecondary">Минимальный порог ЕНТ для участия в конкурсе</span>
+                  <span className="text-sm font-semibold text-brandOrange">Устанавливается государством</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-darkBorder bg-darkBg p-4">
-                  <span className="text-sm text-textSecondary">Рекомендуемый для гарантированного поступления</span>
-                  <span className="text-sm font-semibold text-brandOrange">70–80+ баллов</span>
+                  <span className="text-sm text-textSecondary">Проходной балл на платное отделение</span>
+                  <span className="text-sm font-semibold text-brandOrange">Зависит от конкурса</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-darkBorder bg-darkBg p-4">
                   <span className="text-sm text-textSecondary">Государственный грант</span>
-                  <span className="text-sm font-semibold text-brandOrange">от 80+ баллов</span>
+                  <span className="text-sm font-semibold text-brandOrange">По результатам конкурса</span>
                 </div>
                 <div className="flex items-center justify-between rounded-xl border border-darkBorder bg-darkBg p-4">
                   <span className="text-sm text-textSecondary">Внутренние гранты и скидки AlmaU</span>
-                  <span className="text-sm font-semibold text-brandOrange">от 60–70 баллов</span>
+                  <span className="text-sm font-semibold text-brandOrange">Индивидуально</span>
                 </div>
               </div>
               <p className="mt-4 text-sm text-textSecondary leading-relaxed">
