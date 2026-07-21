@@ -26,11 +26,11 @@ function ProgramCard({ program, isOpen, onToggle, index }: {
       >
         <div className="flex-1 pr-4">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange">
+            <span className="rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange" style={{ letterSpacing: "0.06em" }}>
               {program.level}
             </span>
           </div>
-          <h3 className="mt-2 font-display text-lg md:text-xl font-bold text-textPrimary">{program.title}</h3>
+          <h3 className="mt-2 font-display text-lg md:text-xl font-semibold text-textPrimary">{program.title}</h3>
           <p className="mt-0.5 text-sm text-textMuted">{program.slugan}</p>
         </div>
         <motion.div
@@ -125,8 +125,8 @@ export function Programs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-display font-bold text-textPrimary leading-tight"
-            style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
+            className="mt-4 font-display font-semibold text-textPrimary leading-tight"
+            style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
           >
             Наши программы
           </motion.h2>

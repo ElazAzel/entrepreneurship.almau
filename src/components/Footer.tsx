@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { FOOTER_LINKS, FOOTER_CONTACTS, SOCIAL_LINKS, ALMAU_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
@@ -20,7 +21,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <img src={logoSrc} alt="Institute for Entrepreneurship" className="h-8 w-auto mb-4" />
+            <Image src={logoSrc} alt="Institute for Entrepreneurship" width={160} height={32} className="h-8 w-auto mb-4" />
             <p className="text-sm text-textSecondary leading-relaxed max-w-xs break-words">
               Institute for Entrepreneurship AlmaU — сообщество предпринимателей, студентов и экспертов.
             </p>
@@ -36,7 +37,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-textPrimary mb-4">Навигация</h4>
+            <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>Навигация</h4>
             <ul className="space-y-2">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
@@ -52,7 +53,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-textPrimary mb-4">Контакты</h4>
+            <h4 className="text-sm font-semibold text-textPrimary mb-4" style={{ letterSpacing: "0.02em" }}>Контакты</h4>
             <ul className="space-y-2 text-sm text-textSecondary">
               <li>{FOOTER_CONTACTS.address}</li>
               <li>
@@ -95,9 +96,9 @@ export function Footer() {
               href="https://www.instagram.com/elazart/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brandOrange hover:underline"
+              className="hover:underline"
             >
-              ElazArt&trade;
+              ElazArt
             </a>
           </p>
         </div>

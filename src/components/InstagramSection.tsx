@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { INSTAGRAM_LINK, INSTAGRAM_HANDLE } from "@/lib/constants";
 import { SectionBadge } from "@/components/SectionBadge";
@@ -46,8 +47,8 @@ export function InstagramSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-display font-bold text-textPrimary leading-tight"
-            style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
+            className="mt-4 font-display font-semibold text-textPrimary leading-tight"
+            style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
           >
             Мы в Instagram
           </motion.h2>
@@ -73,10 +74,12 @@ export function InstagramSection() {
               transition={{ duration: 0.4, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className="group relative aspect-square overflow-hidden rounded-2xl border border-darkBorder transition-all duration-300 hover:scale-[1.02] hover:border-brandOrange/20"
             >
-              <img
+              <Image
                 src={post.img}
                 alt={post.label}
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                fill
+                className="object-cover transition-all duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-darkBg/60 to-transparent" />
               <div className="absolute top-3 right-3 rounded-full bg-white/10 backdrop-blur-md p-2">

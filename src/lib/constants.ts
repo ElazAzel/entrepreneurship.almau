@@ -18,10 +18,10 @@ export const INSTAGRAM_HANDLE = "@entrepreneurship.almau";
 export const NAV_ITEMS = [
   { label: "О нас", href: "#about" },
   { label: "Программы", href: "#programs" },
-  { label: "Проекты", href: "#projects" },
-  { label: "Студенты", href: "#students" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Instagram", href: "#instagram" },
+  { label: "Поступление", href: "/admission" },
+  { label: "Гранты", href: "/admission/grants-and-tuition" },
+  { label: "Карьера", href: "/career" },
+  { label: "ЕНТ", href: "/ent/matematika-geografiya" },
 ] as const;
 
 export const HERO_BADGES = [
@@ -276,10 +276,12 @@ export const PARTNERS_LIST = [
 export const FOOTER_LINKS = [
   { label: "О нас", href: "#about" },
   { label: "Программы", href: "#programs" },
-  { label: "Проекты", href: "#projects" },
-  { label: "Студенты", href: "#students" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Instagram", href: "#instagram" },
+  { label: "Поступление", href: "/admission" },
+  { label: "Гранты и стоимость", href: "/admission/grants-and-tuition" },
+  { label: "Карьера", href: "/career" },
+  { label: "ЕНТ математика+география", href: "/ent/matematika-geografiya" },
+  { label: "Сравнение программ", href: "/compare/management-vs-entrepreneurship" },
+  { label: "Почему AlmaU", href: "/why-entrepreneurship-almau" },
 ] as const;
 
 export const FOOTER_CONTACTS = {

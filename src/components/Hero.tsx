@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { WHATSAPP_LINK, HERO_BADGES, ARTICLE_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
@@ -23,13 +24,13 @@ function Particles() {
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 20; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        speed: 0.15 + Math.random() * 0.35,
-        size: 1 + Math.random() * 2,
-        opacity: 0.15 + Math.random() * 0.35,
+        speed: 0.1 + Math.random() * 0.2,
+        size: 1 + Math.random() * 1.5,
+        opacity: 0.1 + Math.random() * 0.25,
       });
     }
 
@@ -65,23 +66,12 @@ function Particles() {
   );
 }
 
-function BlurBlobs() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none motion-reduce:hidden" aria-hidden="true">
-      <div className="absolute -top-1/3 -left-1/4 h-[500px] w-[500px] rounded-full bg-brandBlue/20 blur-[120px] animate-[blob1_18s_ease-in-out_infinite]" />
-      <div className="absolute top-1/3 -right-1/4 h-[400px] w-[400px] rounded-full bg-brandOrange/10 blur-[100px] animate-[blob2_20s_ease-in-out_infinite]" />
-      <div className="absolute -bottom-1/4 left-1/3 h-[450px] w-[450px] rounded-full bg-brandBlue/10 blur-[110px] animate-[blob1_16s_ease-in-out_infinite]" />
-    </div>
-  );
-}
-
 export function Hero() {
   const { theme } = useTheme();
   const logoSrc = theme === "dark" ? "/logos/logotype-white.svg" : "/logos/logotype-blue.svg";
 
   return (
     <section className="relative flex items-center bg-darkBg overflow-hidden min-h-[600px] md:min-h-dvh pt-16 pb-10 md:pt-0 md:pb-0">
-      <BlurBlobs />
       <Particles />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4">
@@ -91,7 +81,7 @@ export function Hero() {
               <div className="flex flex-col items-center md:items-start text-center md:text-left">
                 <motion.img
                   src={logoSrc}
-                  alt="Institute for Entrepreneurship"
+                  alt="Institute for Entrepreneurship AlmaU"
                   className="h-10 md:h-16 w-auto mb-4 md:mb-6"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -102,8 +92,8 @@ export function Hero() {
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display font-black text-textPrimary leading-tight break-words"
-                  style={{ fontSize: "clamp(20px, 4.5vw, 48px)", letterSpacing: "-0.02em" }}
+                  className="font-display font-bold text-textPrimary leading-tight break-words"
+                  style={{ fontSize: "clamp(24px, 4.5vw, 52px)", letterSpacing: "-0.02em" }}
                 >
                   Создавай бизнес, проекты и&nbsp;карьеру будущего вместе с&nbsp;AlmaU
                 </motion.h1>
@@ -112,7 +102,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-3 max-w-xl text-xs md:text-base text-textSecondary leading-relaxed break-words"
+                  className="mt-4 max-w-xl text-sm md:text-base text-textSecondary leading-relaxed break-words"
                 >
                   Institute for Entrepreneurship AlmaU — сообщество предпринимателей, где ты учишься через действие, запускаешь проекты и строишь карьеру с первого курса.
                 </motion.p>
@@ -121,13 +111,13 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-5 md:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2 md:gap-3 w-full"
+                  className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center md:items-start gap-2 md:gap-3 w-full"
                 >
                   <a
                     href={WHATSAPP_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-brandOrange px-6 py-2.5 md:px-7 md:py-3 text-sm font-semibold text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-[0_0_30px_rgba(235,96,27,0.35)]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-brandOrange px-6 py-2.5 md:px-7 md:py-3 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
                   >
                     Хочу поступить
                   </a>
@@ -169,23 +159,17 @@ export function Hero() {
                 </motion.a>
               </div>
             </div>
-            <div className="hidden md:block md:col-span-2 relative min-h-[300px] overflow-hidden">
-              <img
+            <div className="hidden md:block md:col-span-2 relative min-h-[320px] overflow-hidden">
+              <Image
                 src="/images/photoshoot/2S2A3060.jpg"
-                alt="Студенты AlmaU"
-                className="absolute inset-0 w-full h-full object-cover"
+                alt="Студенты Института предпринимательства AlmaU"
+                fill
+                className="object-cover"
+                sizes="40vw"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-darkCard/90" />
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 motion-reduce:hidden hidden md:block" aria-hidden="true">
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-[10px] text-textMuted tracking-widest uppercase">Scroll</span>
-          <div className="h-6 w-[1px] bg-darkBorder relative overflow-hidden">
-            <div className="absolute top-0 left-0 h-2 w-full bg-brandOrange rounded-full animate-[scroll-cue_2s_ease-in-out_infinite]" />
           </div>
         </div>
       </div>

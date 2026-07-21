@@ -23,8 +23,8 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4 font-display font-bold text-textPrimary leading-tight"
-              style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
+              className="mt-4 font-display font-semibold text-textPrimary leading-tight"
+              style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
             >
               {ABOUT.title}
             </motion.h2>
@@ -49,7 +49,7 @@ export function About() {
                   transition={{ duration: 0.5, delay: 0.25 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   className="rounded-2xl border border-darkBorder bg-darkCard p-6 transition-all duration-300 hover:border-brandOrange/20"
                 >
-                  <span className="inline-block rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange uppercase tracking-wider">
+                  <span className="inline-block rounded-full bg-brandOrange/10 px-3 py-0.5 text-[11px] font-medium text-brandOrange uppercase" style={{ letterSpacing: "0.08em" }}>
                     {i === 0 ? "Track 01" : "Track 02"}
                   </span>
                   <h3 className="mt-3 font-display text-lg font-bold text-textPrimary">{track.title}</h3>

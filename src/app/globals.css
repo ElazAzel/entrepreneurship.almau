@@ -35,85 +35,49 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Cera Pro";
-  src: url("/fonts/CeraPro-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 @theme inline {
   --color-brandBlue: #223a89;
   --color-brandOrange: #eb601b;
-  --color-darkBg: #0a0e1a;
-  --color-darkCard: #111827;
-  --color-darkBorder: #1e293b;
-  --color-textPrimary: #f1f5f9;
-  --color-textSecondary: #94a3b8;
-  --color-textMuted: #64748b;
+  --color-darkBg: #0f1117;
+  --color-darkCard: #161b26;
+  --color-darkBorder: rgba(255, 255, 255, 0.08);
+  --color-textPrimary: #e8eaed;
+  --color-textSecondary: #9aa0a8;
+  --color-textMuted: #6b7280;
   --font-sans: "Cera Pro", system-ui, sans-serif;
   --font-display: "Cera Pro", system-ui, sans-serif;
+  --tracking-caps: 0.06em;
+  --tracking-display: -0.02em;
 }
 
-.light .bg-darkBg { background-color: #f8f9fa; }
-.light .bg-darkBg\/50 { background-color: rgba(248, 249, 250, 0.5); }
-.light .bg-darkBg\/60 { background-color: rgba(248, 249, 250, 0.6); }
-.light .bg-darkBg\/90 { background-color: rgba(248, 249, 250, 0.9); }
-.light .bg-darkBg\/95 { background-color: rgba(248, 249, 250, 0.95); }
+.light .bg-darkBg { background-color: #f5f5f0; }
+.light .bg-darkBg\/50 { background-color: rgba(245, 245, 240, 0.5); }
+.light .bg-darkBg\/60 { background-color: rgba(245, 245, 240, 0.6); }
+.light .bg-darkBg\/90 { background-color: rgba(245, 245, 240, 0.9); }
+.light .bg-darkBg\/95 { background-color: rgba(245, 245, 240, 0.95); }
 .light .bg-darkCard { background-color: #ffffff; }
 .light .bg-darkCard\/50 { background-color: rgba(255, 255, 255, 0.5); }
 .light .bg-darkCard\/80 { background-color: rgba(255, 255, 255, 0.8); }
-.light .bg-darkBorder { background-color: #e2e8f0; }
-.light .border-darkBorder { border-color: #e2e8f0; }
-.light .text-textPrimary { color: #1e293b; }
-.light .text-textSecondary { color: #475569; }
-.light .text-textMuted { color: #94a3b8; }
+.light .bg-darkBorder { background-color: rgba(0, 0, 0, 0.08); }
+.light .border-darkBorder { border-color: rgba(0, 0, 0, 0.1); }
+.light .text-textPrimary { color: #1c1d21; }
+.light .text-textSecondary { color: #5a5f66; }
+.light .text-textMuted { color: #9ca0a6; }
 .light .hover\:bg-darkCard:hover { background-color: #ffffff; }
 .light .hover\:bg-darkCard\/80:hover { background-color: rgba(255, 255, 255, 0.8); }
-.light .hover\:text-textPrimary:hover { color: #1e293b; }
-.light .from-darkBg\/60 { --tw-gradient-from: rgba(248, 249, 250, 0.6); }
+.light .hover\:text-textPrimary:hover { color: #1c1d21; }
+.light .from-darkBg\/60 { --tw-gradient-from: rgba(245, 245, 240, 0.6); }
 .light .to-darkCard\/90 { --tw-gradient-to: rgba(255, 255, 255, 0.9); }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
-}
-
-@keyframes blob1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(30px, -50px) scale(1.1); }
-  50% { transform: translate(-20px, 20px) scale(0.95); }
-  75% { transform: translate(40px, -30px) scale(1.05); }
-}
-
-@keyframes blob2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-40px, 30px) scale(1.05); }
-  50% { transform: translate(20px, -40px) scale(0.9); }
-  75% { transform: translate(-30px, 50px) scale(1.1); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
-}
-
-@keyframes scroll-cue {
-  0%, 100% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(8px); }
-}
-
-@keyframes particle-rise {
-  0% { transform: translateY(0) translateX(0); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { transform: translateY(-100dvh) translateX(30px); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -125,14 +89,15 @@
   }
 }
 
+@keyframes preloaderPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
-}
-
-.light .invert-for-theme {
-  filter: none;
 }

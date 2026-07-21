@@ -22,8 +22,8 @@ export function WhyUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-display font-bold text-textPrimary leading-tight"
-            style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
+            className="mt-4 font-display font-semibold text-textPrimary leading-tight"
+            style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
           >
             Почему Институт предпринимательства AlmaU
           </motion.h2>
@@ -52,7 +52,7 @@ export function WhyUs() {
               <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-full bg-brandOrange/10 text-brandOrange font-bold text-sm">
                 {i + 1}
               </div>
-              <h3 className="font-display text-base font-bold text-textPrimary">{item.title}</h3>
+              <h3 className="font-display text-base font-semibold text-textPrimary">{item.title}</h3>
               <p className="mt-1.5 text-sm text-textSecondary leading-relaxed">{item.text}</p>
             </motion.div>
           ))}

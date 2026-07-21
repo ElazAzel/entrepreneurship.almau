@@ -22,8 +22,8 @@ export function Partners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 font-display font-bold text-textPrimary leading-tight"
-            style={{ fontSize: "clamp(26px, 3.2vw, 40px)" }}
+            className="mt-4 font-display font-semibold text-textPrimary leading-tight"
+            style={{ fontSize: "clamp(26px, 3.2vw, 40px)", letterSpacing: "-0.01em" }}
           >
             Партнёры
           </motion.h2>

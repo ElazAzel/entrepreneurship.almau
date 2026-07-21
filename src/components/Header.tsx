@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { NAV_ITEMS, WHATSAPP_LINK, ALMAU_LINK } from "@/lib/constants";
 import { useTheme } from "@/lib/ThemeProvider";
 
@@ -16,7 +17,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const logoSrc = theme === "dark" ? "/logos/emblem-white.svg" : "/logos/emblem-orange.svg";
+  const emblemTheme = theme === "dark" ? "white" : "orange";
 
   return (
     <>
@@ -34,14 +35,20 @@ export function Header() {
         >
           <div className="flex items-center gap-1 px-2">
             <a href="#" className="px-3 py-2">
-              <img src={logoSrc} alt="Institute for Entrepreneurship" className="h-7 w-auto" />
+              <Image
+                src={`/logos/emblem-${emblemTheme}.svg`}
+                alt="Institute for Entrepreneurship"
+                width={28}
+                height={28}
+                className="h-7 w-auto"
+              />
             </a>
             <nav className="flex items-center gap-1">
               {NAV_ITEMS.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="rounded-full px-3.5 py-2 text-sm font-medium text-textSecondary transition-colors hover:text-textPrimary hover:bg-white/5"
+                  className="rounded-full px-3 py-2 text-sm font-medium text-textSecondary whitespace-nowrap transition-colors hover:text-textPrimary hover:bg-white/5"
                 >
                   {item.label}
                 </a>
@@ -66,7 +73,7 @@ export function Header() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 rounded-full bg-brandOrange px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:bg-brandOrange/90"
+              className="ml-1 rounded-full bg-brandOrange px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:brightness-110"
             >
               Поступить
             </a>
@@ -77,7 +84,13 @@ export function Header() {
       <header className="fixed bottom-0 left-0 right-0 z-50 border-t border-darkBorder bg-darkBg/95 backdrop-blur-xl md:hidden">
         <nav className="flex items-center justify-around px-2 py-2">
           <a href="#" className="flex flex-col items-center gap-0.5 px-2 py-1">
-            <img src={logoSrc} alt="Home" className="h-5 w-auto" />
+            <Image
+              src={`/logos/emblem-${emblemTheme}.svg`}
+              alt="Institute for Entrepreneurship"
+              width={20}
+              height={20}
+              className="h-5 w-auto"
+            />
           </a>
           {NAV_ITEMS.slice(0, 4).map((item) => (
             <a
@@ -91,7 +104,7 @@ export function Header() {
           <button
             onClick={() => setMenuOpen(true)}
             className="flex flex-col items-center gap-0.5 px-2 py-1 text-[10px] font-medium text-brandOrange"
-            aria-label="Меню"
+            aria-label="Открыть меню"
           >
             <Menu className="h-5 w-5" />
             Ещё
@@ -109,7 +122,7 @@ export function Header() {
           >
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-5 right-5 text-textPrimary"
+              className="absolute top-5 right-5 p-2 text-textPrimary"
               aria-label="Закрыть меню"
             >
               <X className="h-7 w-7" />
@@ -141,7 +154,7 @@ export function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.08 }}
-                  className="text-2xl font-bold text-textPrimary transition-colors hover:text-brandOrange"
+                  className="text-2xl font-semibold text-textPrimary transition-colors hover:text-brandOrange"
                 >
                   {item.label}
                 </motion.a>
